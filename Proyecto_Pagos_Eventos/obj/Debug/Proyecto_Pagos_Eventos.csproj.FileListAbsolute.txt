@@ -56,6 +56,8 @@ C:\Users\Uziel\Desktop\Proyecto Fiestas\Proyecto\Proyecto_Pagos_Eventos\Proyecto
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\Proyecto_Pagos_Eventos.exe.config
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\Proyecto_Pagos_Eventos.exe
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\Proyecto_Pagos_Eventos.pdb
+C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityFramework.dll
+C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityFramework.xml
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csprojAssemblyReference.cache
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Clientes.resources

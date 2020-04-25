@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using Proyecto_Pagos_Eventos.Models;
 
 namespace Proyecto_Pagos_Eventos
 {
@@ -92,19 +93,35 @@ namespace Proyecto_Pagos_Eventos
         {
             try
             {
-                if (txtUser.Text != "Usuario")
+                EventosBDEntities BD = new EventosBDEntities();
+
+                Usuarios login = BD.Usuarios.Where(w => w.usuario == txtUser.Text && w.contrasena == txtpass.Text && w.activo == true).FirstOrDefault();
+
+                if (login != null)
                 {
                     lbMsgU.Visible = false;
-                    if (txtpass.Text != "Contraseña")
-                    {
-                        lbMsgP.Visible = false;
-                        this.Hide();
-                        WFormsMenu Menu = new WFormsMenu();
-                        Menu.Show();
-                    }
-                    else msgErrorP("Ingrese Contraseña");
+                    lbMsgP.Visible = false;
+                    this.Hide();
+                    WFormsMenu Menu = new WFormsMenu();
+                    Menu.Show();
                 }
-                else msgErrorU("Ingrese Nombre de Usuario");
+                else
+                {
+                    msgErrorP("Ingrese Contraseña");
+                }
+                //if (txtUser.Text != "Usuario")
+                //{
+                //    lbMsgU.Visible = false;
+                //    if (txtpass.Text != "Contraseña")
+                //    {
+                //        lbMsgP.Visible = false;
+                //        this.Hide();
+                //        WFormsMenu Menu = new WFormsMenu();
+                //        Menu.Show();
+                //    }
+                //    else msgErrorP("Ingrese Contraseña");
+                //}
+                //else msgErrorU("Ingrese Nombre de Usuario");
             }
             catch (Exception ex)
             {

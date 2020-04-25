@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EventosBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Clientes">
+    <Key>
+      <PropertyRef Name="idCliente" />
+    </Key>
+    <Property Name="idCliente" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+    <Property Name="apellidos" Type="nvarchar" MaxLength="30" />
+    <Property Name="telefono" Type="nchar" MaxLength="15" />
+    <Property Name="celular" Type="nchar" MaxLength="15" />
+    <Property Name="correo" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Comprobantes">
+    <Key>
+      <PropertyRef Name="idComprobante" />
+    </Key>
+    <Property Name="idComprobante" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idCliente" Type="uniqueidentifier" />
+    <Property Name="idUsuario" Type="uniqueidentifier" />
+    <Property Name="idServicio" Type="uniqueidentifier" />
+    <Property Name="monto" Type="money" />
+    <Property Name="pagado" Type="bit" />
+    <Property Name="activo" Type="bit" />
+    <Property Name="fechaInicio" Type="date" />
+    <Property Name="fechaFinal" Type="date" />
+  </EntityType>
+  <EntityType Name="Equipo">
+    <Key>
+      <PropertyRef Name="idEquipo" />
+    </Key>
+    <Property Name="idEquipo" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="tipo" Type="varchar" MaxLength="10" />
+    <Property Name="descripcion" Type="varchar" MaxLength="50" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <EntityType Name="Servicio">
+    <Key>
+      <PropertyRef Name="idServicio" />
+    </Key>
+    <Property Name="idServicio" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="idEquipo" Type="uniqueidentifier" />
+  </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="idUsuario" />
+    </Key>
+    <Property Name="idUsuario" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="usuario" Type="varchar" MaxLength="10" />
+    <Property Name="contrasena" Type="varchar" MaxLength="8" />
+    <Property Name="activo" Type="bit" />
+  </EntityType>
+  <Association Name="FK_Comprobantes_Clientes">
+    <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+    <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Clientes">
+        <PropertyRef Name="idCliente" />
+      </Principal>
+      <Dependent Role="Comprobantes">
+        <PropertyRef Name="idCliente" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comprobantes_Servicio">
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+    <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Servicio">
+        <PropertyRef Name="idServicio" />
+      </Principal>
+      <Dependent Role="Comprobantes">
+        <PropertyRef Name="idServicio" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Comprobantes_Usuarios">
+    <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+    <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuarios">
+        <PropertyRef Name="idUsuario" />
+      </Principal>
+      <Dependent Role="Comprobantes">
+        <PropertyRef Name="idUsuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Servicio_Equipo">
+    <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
+    <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Equipo">
+        <PropertyRef Name="idEquipo" />
+      </Principal>
+      <Dependent Role="Servicio">
+        <PropertyRef Name="idEquipo" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EventosBDModelStoreContainer">
+    <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Comprobantes" EntityType="Self.Comprobantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Comprobantes_Clientes" Association="Self.FK_Comprobantes_Clientes">
+      <End Role="Clientes" EntitySet="Clientes" />
+      <End Role="Comprobantes" EntitySet="Comprobantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comprobantes_Servicio" Association="Self.FK_Comprobantes_Servicio">
+      <End Role="Servicio" EntitySet="Servicio" />
+      <End Role="Comprobantes" EntitySet="Comprobantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Comprobantes_Usuarios" Association="Self.FK_Comprobantes_Usuarios">
+      <End Role="Usuarios" EntitySet="Usuarios" />
+      <End Role="Comprobantes" EntitySet="Comprobantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Servicio_Equipo" Association="Self.FK_Servicio_Equipo">
+      <End Role="Equipo" EntitySet="Equipo" />
+      <End Role="Servicio" EntitySet="Servicio" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

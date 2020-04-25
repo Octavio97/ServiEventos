@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EventosBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="nombre" Type="nvarchar" MaxLength="30" />
+          <Property Name="apellidos" Type="nvarchar" MaxLength="30" />
+          <Property Name="telefono" Type="nchar" MaxLength="15" />
+          <Property Name="celular" Type="nchar" MaxLength="15" />
+          <Property Name="correo" Type="varchar" MaxLength="50" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Comprobantes">
+          <Key>
+            <PropertyRef Name="idComprobante" />
+          </Key>
+          <Property Name="idComprobante" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idCliente" Type="uniqueidentifier" />
+          <Property Name="idUsuario" Type="uniqueidentifier" />
+          <Property Name="idServicio" Type="uniqueidentifier" />
+          <Property Name="monto" Type="money" />
+          <Property Name="pagado" Type="bit" />
+          <Property Name="activo" Type="bit" />
+          <Property Name="fechaInicio" Type="date" />
+          <Property Name="fechaFinal" Type="date" />
+        </EntityType>
+        <EntityType Name="Equipo">
+          <Key>
+            <PropertyRef Name="idEquipo" />
+          </Key>
+          <Property Name="idEquipo" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="tipo" Type="varchar" MaxLength="10" />
+          <Property Name="descripcion" Type="varchar" MaxLength="50" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="idEquipo" Type="uniqueidentifier" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="usuario" Type="varchar" MaxLength="10" />
+          <Property Name="contrasena" Type="varchar" MaxLength="8" />
+          <Property Name="activo" Type="bit" />
+        </EntityType>
+        <Association Name="FK_Comprobantes_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comprobantes_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comprobantes_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Equipo">
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipo">
+              <PropertyRef Name="idEquipo" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventosBDModelStoreContainer">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Comprobantes" EntityType="Self.Comprobantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Comprobantes_Clientes" Association="Self.FK_Comprobantes_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comprobantes_Servicio" Association="Self.FK_Comprobantes_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comprobantes_Usuarios" Association="Self.FK_Comprobantes_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Equipo" Association="Self.FK_Servicio_Equipo">
+            <End Role="Equipo" EntitySet="Equipo" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EventosBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="idCliente" />
+          </Key>
+          <Property Name="idCliente" Type="Guid" Nullable="false" />
+          <Property Name="nombre" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="apellidos" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="telefono" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="celular" Type="String" MaxLength="15" FixedLength="true" Unicode="true" />
+          <Property Name="correo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <NavigationProperty Name="Comprobantes" Relationship="Self.FK_Comprobantes_Clientes" FromRole="Clientes" ToRole="Comprobantes" />
+        </EntityType>
+        <EntityType Name="Comprobantes">
+          <Key>
+            <PropertyRef Name="idComprobante" />
+          </Key>
+          <Property Name="idComprobante" Type="Guid" Nullable="false" />
+          <Property Name="idCliente" Type="Guid" />
+          <Property Name="idUsuario" Type="Guid" />
+          <Property Name="idServicio" Type="Guid" />
+          <Property Name="monto" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="pagado" Type="Boolean" />
+          <Property Name="activo" Type="Boolean" />
+          <Property Name="fechaInicio" Type="DateTime" Precision="0" />
+          <Property Name="fechaFinal" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK_Comprobantes_Clientes" FromRole="Comprobantes" ToRole="Clientes" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Comprobantes_Servicio" FromRole="Comprobantes" ToRole="Servicio" />
+          <NavigationProperty Name="Usuarios" Relationship="Self.FK_Comprobantes_Usuarios" FromRole="Comprobantes" ToRole="Usuarios" />
+        </EntityType>
+        <EntityType Name="Equipo">
+          <Key>
+            <PropertyRef Name="idEquipo" />
+          </Key>
+          <Property Name="idEquipo" Type="Guid" Nullable="false" />
+          <Property Name="tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_Equipo" FromRole="Equipo" ToRole="Servicio" />
+        </EntityType>
+        <EntityType Name="Servicio">
+          <Key>
+            <PropertyRef Name="idServicio" />
+          </Key>
+          <Property Name="idServicio" Type="Guid" Nullable="false" />
+          <Property Name="idEquipo" Type="Guid" />
+          <NavigationProperty Name="Comprobantes" Relationship="Self.FK_Comprobantes_Servicio" FromRole="Servicio" ToRole="Comprobantes" />
+          <NavigationProperty Name="Equipo" Relationship="Self.FK_Servicio_Equipo" FromRole="Servicio" ToRole="Equipo" />
+        </EntityType>
+        <EntityType Name="Usuarios">
+          <Key>
+            <PropertyRef Name="idUsuario" />
+          </Key>
+          <Property Name="idUsuario" Type="Guid" Nullable="false" />
+          <Property Name="usuario" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="contrasena" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="activo" Type="Boolean" />
+          <NavigationProperty Name="Comprobantes" Relationship="Self.FK_Comprobantes_Usuarios" FromRole="Usuarios" ToRole="Comprobantes" />
+        </EntityType>
+        <Association Name="FK_Comprobantes_Clientes">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="idCliente" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comprobantes_Servicio">
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Servicio">
+              <PropertyRef Name="idServicio" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Comprobantes_Usuarios">
+          <End Role="Usuarios" Type="Self.Usuarios" Multiplicity="0..1" />
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Usuarios">
+              <PropertyRef Name="idUsuario" />
+            </Principal>
+            <Dependent Role="Comprobantes">
+              <PropertyRef Name="idUsuario" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Servicio_Equipo">
+          <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
+          <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Equipo">
+              <PropertyRef Name="idEquipo" />
+            </Principal>
+            <Dependent Role="Servicio">
+              <PropertyRef Name="idEquipo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EventosBDEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" />
+          <EntitySet Name="Comprobantes" EntityType="Self.Comprobantes" />
+          <EntitySet Name="Equipo" EntityType="Self.Equipo" />
+          <EntitySet Name="Servicio" EntityType="Self.Servicio" />
+          <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
+          <AssociationSet Name="FK_Comprobantes_Clientes" Association="Self.FK_Comprobantes_Clientes">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comprobantes_Servicio" Association="Self.FK_Comprobantes_Servicio">
+            <End Role="Servicio" EntitySet="Servicio" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Comprobantes_Usuarios" Association="Self.FK_Comprobantes_Usuarios">
+            <End Role="Usuarios" EntitySet="Usuarios" />
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Servicio_Equipo" Association="Self.FK_Servicio_Equipo">
+            <End Role="Equipo" EntitySet="Equipo" />
+            <End Role="Servicio" EntitySet="Servicio" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EventosBDModelStoreContainer" CdmEntityContainer="EventosBDEntities">
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="EventosBDModel.Clientes">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
+                <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+                <ScalarProperty Name="telefono" ColumnName="telefono" />
+                <ScalarProperty Name="celular" ColumnName="celular" />
+                <ScalarProperty Name="correo" ColumnName="correo" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Comprobantes">
+            <EntityTypeMapping TypeName="EventosBDModel.Comprobantes">
+              <MappingFragment StoreEntitySet="Comprobantes">
+                <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
+                <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="monto" ColumnName="monto" />
+                <ScalarProperty Name="pagado" ColumnName="pagado" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+                <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+                <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Equipo">
+            <EntityTypeMapping TypeName="EventosBDModel.Equipo">
+              <MappingFragment StoreEntitySet="Equipo">
+                <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+                <ScalarProperty Name="tipo" ColumnName="tipo" />
+                <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Servicio">
+            <EntityTypeMapping TypeName="EventosBDModel.Servicio">
+              <MappingFragment StoreEntitySet="Servicio">
+                <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+                <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Usuarios">
+            <EntityTypeMapping TypeName="EventosBDModel.Usuarios">
+              <MappingFragment StoreEntitySet="Usuarios">
+                <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+                <ScalarProperty Name="usuario" ColumnName="usuario" />
+                <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+                <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
