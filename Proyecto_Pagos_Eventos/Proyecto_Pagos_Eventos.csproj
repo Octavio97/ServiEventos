@@ -56,17 +56,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clientes.cs">
+    <Compile Include="Clases\Conexion.cs" />
+    <Compile Include="Clases\CrudClientes.cs" />
+    <Compile Include="Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Clientes.Designer.cs">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <Compile Include="Cliente.Designer.cs">
+      <DependentUpon>Cliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Equipo.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Equipo.Designer.cs">
       <DependentUpon>Equipo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EventosBDDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventosBDDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -124,8 +131,8 @@
     <Compile Include="Servicios.Designer.cs">
       <DependentUpon>Servicios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Clientes.resx">
-      <DependentUpon>Clientes.cs</DependentUpon>
+    <EmbeddedResource Include="Cliente.resx">
+      <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Equipo.resx">
       <DependentUpon>Equipo.cs</DependentUpon>
@@ -156,6 +163,17 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Model.Designer.cs</LastGenOutput>
     </EntityDeploy>
+    <None Include="EventosBDDataSet.xsc">
+      <DependentUpon>EventosBDDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="EventosBDDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>EventosBDDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="EventosBDDataSet.xss">
+      <DependentUpon>EventosBDDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </None>
@@ -217,6 +235,7 @@
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
+    <None Include="Resources\delete.png" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

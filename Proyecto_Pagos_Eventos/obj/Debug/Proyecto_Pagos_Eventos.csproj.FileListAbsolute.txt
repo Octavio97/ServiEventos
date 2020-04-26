@@ -60,7 +60,6 @@ C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityF
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityFramework.xml
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\Microsoft.VisualBasic.PowerPacks.xml
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csprojAssemblyReference.cache
-C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Clientes.resources
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Equipo.resources
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.WFormsMenu.resources
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Inicio.resources
@@ -72,3 +71,4 @@ C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyect
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csproj.CopyComplete
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.exe
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.pdb
+C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Cliente.resources

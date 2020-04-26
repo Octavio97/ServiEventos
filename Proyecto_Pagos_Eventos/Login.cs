@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Proyecto_Pagos_Eventos.Models;
+using Proyecto_Pagos_Eventos.Clases;
 
 namespace Proyecto_Pagos_Eventos
 {
@@ -93,9 +94,9 @@ namespace Proyecto_Pagos_Eventos
         {
             try
             {
-                EventosBDEntities BD = new EventosBDEntities();
+                lblLoad.Visible = true;
 
-                Usuarios login = BD.Usuarios.Where(w => w.usuario == txtUser.Text && w.contrasena == txtpass.Text && w.activo == true).FirstOrDefault();
+                Usuarios login = Conexion.getInstance().Usuarios.Where(w => w.usuario == txtUser.Text && w.contrasena == txtpass.Text && w.activo == true).FirstOrDefault();
 
                 if (login != null)
                 {
@@ -103,12 +104,13 @@ namespace Proyecto_Pagos_Eventos
                     lbMsgP.Visible = false;
                     this.Hide();
                     WFormsMenu Menu = new WFormsMenu();
-                    Menu.Show();
+                    Menu.Show();                    
                 }
                 else
                 {
-                    msgErrorP("Ingrese Contraseña");
+                    msgErrorP("Ingrese usuario correcto");           
                 }
+                lblLoad.Visible = false;
                 //if (txtUser.Text != "Usuario")
                 //{
                 //    lbMsgU.Visible = false;
@@ -139,16 +141,6 @@ namespace Proyecto_Pagos_Eventos
         {
             lbMsgP.Text = msg;
             lbMsgP.Visible = true;
-        }
-
-        private void Login_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Panel_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

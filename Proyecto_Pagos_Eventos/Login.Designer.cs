@@ -44,6 +44,7 @@
             this.Panel = new Microsoft.VisualBasic.PowerPacks.RectangleShape();
             this.btnCerrar = new System.Windows.Forms.PictureBox();
             this.btnMinimizar = new System.Windows.Forms.PictureBox();
+            this.lblLoad = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).BeginInit();
@@ -196,7 +197,6 @@
             this.Panel.Location = new System.Drawing.Point(0, 0);
             this.Panel.Name = "Panel";
             this.Panel.Size = new System.Drawing.Size(349, 271);
-            this.Panel.Click += new System.EventHandler(this.Panel_Click);
             this.Panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Panel_MouseDown);
             // 
             // btnCerrar
@@ -223,12 +223,25 @@
             this.btnMinimizar.TabStop = false;
             this.btnMinimizar.Click += new System.EventHandler(this.btnMinimizar_Click);
             // 
+            // lblLoad
+            // 
+            this.lblLoad.AutoSize = true;
+            this.lblLoad.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLoad.ForeColor = System.Drawing.Color.White;
+            this.lblLoad.Location = new System.Drawing.Point(122, 420);
+            this.lblLoad.Name = "lblLoad";
+            this.lblLoad.Size = new System.Drawing.Size(114, 25);
+            this.lblLoad.TabIndex = 8;
+            this.lblLoad.Text = "Cargando...";
+            this.lblLoad.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(51)))), ((int)(((byte)(76)))));
             this.ClientSize = new System.Drawing.Size(350, 500);
+            this.Controls.Add(this.lblLoad);
             this.Controls.Add(this.btnMinimizar);
             this.Controls.Add(this.btnCerrar);
             this.Controls.Add(this.btnAcceder);
@@ -239,12 +252,12 @@
             this.Opacity = 0.9D;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
-            this.Load += new System.EventHandler(this.Login_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btnCerrar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnMinimizar)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -264,6 +277,7 @@
         private System.Windows.Forms.Label lbMsgP;
         private System.Windows.Forms.Label lbMsgU;
         private System.Windows.Forms.PictureBox btnMinimizar;
+        private System.Windows.Forms.Label lblLoad;
     }
 }
 

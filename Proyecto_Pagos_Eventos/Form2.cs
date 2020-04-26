@@ -24,7 +24,7 @@ namespace Proyecto_Pagos_Eventos
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar la Aplicación?", "Cerrar Aplicacion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cerrar la Aplicación?", "Cerrar Aplicacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 Application.Exit();
             }
@@ -67,7 +67,7 @@ namespace Proyecto_Pagos_Eventos
 
         private void btnClientes_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Clientes());
+            AbrirFormEnPanel(new Cliente());
         }
 
         private void btnServicio_Click(object sender, EventArgs e)
@@ -115,7 +115,7 @@ namespace Proyecto_Pagos_Eventos
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
 
-            if (MessageBox.Show("¿Desea cerrar la sesion?", "Cerrar sesion", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("¿Desea cerrar la sesion?", "Cerrar sesion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
                 this.Hide();
                 Login Login = new Login();
