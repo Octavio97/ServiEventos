@@ -131,7 +131,7 @@ namespace Proyecto_Pagos_Eventos
 
         private void btnEquipo_Click(object sender, EventArgs e)
         {
-            AbrirFormEnPanel(new Equipo());
+            AbrirFormEnPanel(new Equipos());
         }
 
         // Metodo para llamar windowsform a panel contenedor //

@@ -36,8 +36,6 @@ namespace Proyecto_Pagos_Eventos
 
         private void cargarTabla()
         {
-            // TODO: esta línea de código carga datos en la tabla 'eventosBDDataSet.Clientes' Puede moverla o quitarla según sea necesario.
-            this.clientesTableAdapter.Fill(this.eventosBDDataSet.Clientes);
             dgvClientes.AutoGenerateColumns = false;
             dgvClientes.DataSource = CrudClientes.Consulta();
         }
@@ -60,6 +58,8 @@ namespace Proyecto_Pagos_Eventos
 
         private void Clientes_Load(object sender, EventArgs e)
         {
+            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Clientes' Puede moverla o quitarla según sea necesario.
+            this.clientesTableAdapter.Fill(this.clientesDataSet.Clientes);
             cargarTabla();
         }
 
@@ -67,53 +67,57 @@ namespace Proyecto_Pagos_Eventos
         {
             try
             {
+                DialogResult dr = MessageBox.Show("¿Esta seguro de guardar al cliente " + textBoxNom.Text + " " + textBoxApe.Text + "?", "INFO", MessageBoxButtons.YesNo, MessageBoxIcon.Asterisk);
 
-                if (textBoxNom.Text != null &&
+                if (dr.Equals(DialogResult.Yes))
+                {
+                    if (textBoxNom.Text != null &&
                     textBoxApe.Text != null &&
                     textBoxTel.Text != null &&
                     textBoxCel.Text != null &&
                     textBoxEmail.Text != null &&
-                    radioBno.Checked != false &&
+                    radioBno.Checked != false ||
                     radioBsi.Checked != false)
-                {
-                    if (id != null)
                     {
-                        Clientes client = new Clientes
+                        if (id != Guid.Empty)
                         {
-                            idCliente = id,
-                            nombre = textBoxNom.Text,
-                            apellidos = textBoxApe.Text,
-                            telefono = textBoxTel.Text,
-                            celular = textBoxCel.Text,
-                            correo = textBoxEmail.Text,
-                            activo = activo
-                        };
+                            Clientes client = new Clientes
+                            {
+                                idCliente = id,
+                                nombre = textBoxNom.Text,
+                                apellidos = textBoxApe.Text,
+                                telefono = textBoxTel.Text,
+                                celular = textBoxCel.Text,
+                                correo = textBoxEmail.Text,
+                                activo = activo
+                            };
 
-                        CrudClientes.Modificar(client);
-                        clearInterface();
-                        cargarTabla();
+                            CrudClientes.Modificar(client);
+                            clearInterface();
+                            cargarTabla();
+                        }
+                        else
+                        {
+                            Clientes newClient = new Clientes
+                            {
+                                idCliente = Guid.NewGuid(),
+                                nombre = textBoxNom.Text,
+                                apellidos = textBoxApe.Text,
+                                telefono = textBoxTel.Text,
+                                celular = textBoxCel.Text,
+                                correo = textBoxEmail.Text,
+                                activo = activo
+                            };
+
+                            CrudClientes.Alta(newClient);
+                            clearInterface();
+                            cargarTabla();
+                        }
                     }
                     else
                     {
-                        Clientes newClient = new Clientes
-                        {
-                            idCliente = Guid.NewGuid(),
-                            nombre = textBoxNom.Text,
-                            apellidos = textBoxApe.Text,
-                            telefono = textBoxTel.Text,
-                            celular = textBoxCel.Text,
-                            correo = textBoxEmail.Text,
-                            activo = activo
-                        };
-
-                        CrudClientes.Alta(newClient);
-                        clearInterface();
-                        cargarTabla();
+                        MessageBox.Show("Ingrese los campos faltantes", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
-                }
-                else
-                {
-                    MessageBox.Show("Ingrese los campos faltantes", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             catch (Exception ex)
@@ -123,30 +127,6 @@ namespace Proyecto_Pagos_Eventos
         }
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                textBoxNom.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-                textBoxApe.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-                textBoxTel.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-                textBoxCel.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-                textBoxEmail.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-                if (dgvClientes.CurrentRow.Cells[1].Value.Equals(true))
-                {
-                    radioBsi.Checked = true;
-                }
-                else
-                {
-                    radioBno.Checked = false;
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine("error");
-            }
-        }
-
-        private void dgvClientes_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             clearInterface();
             id = Guid.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
