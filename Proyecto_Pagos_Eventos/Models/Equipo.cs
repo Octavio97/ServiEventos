@@ -23,6 +23,7 @@ namespace Proyecto_Pagos_Eventos.Models
         public string tipo { get; set; }
         public string descripcion { get; set; }
         public Nullable<bool> activo { get; set; }
+        public Nullable<decimal> monto { get; set; }
     
         public virtual ICollection<Servicio> Servicio { get; set; }
     }

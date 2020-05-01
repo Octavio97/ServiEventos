@@ -165,10 +165,6 @@
     <EmbeddedResource Include="Servicios.resx">
       <DependentUpon>Servicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClientesDataSet.xsc">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
     </None>
@@ -180,6 +176,10 @@
     <None Include="ClientesDataSet.xss">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
     </None>
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
     <None Include="EquiposDataSet.xsc">
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
     </None>
@@ -242,20 +242,22 @@
     <None Include="Resources\user %282%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\delete.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <None Include="Resources\delete.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

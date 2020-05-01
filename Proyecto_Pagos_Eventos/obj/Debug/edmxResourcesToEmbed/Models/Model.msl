@@ -36,6 +36,7 @@
           <ScalarProperty Name="tipo" ColumnName="tipo" />
           <ScalarProperty Name="descripcion" ColumnName="descripcion" />
           <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

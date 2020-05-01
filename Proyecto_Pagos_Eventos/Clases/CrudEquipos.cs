@@ -41,6 +41,7 @@ namespace Proyecto_Pagos_Eventos.Clases
                 modificar.tipo = array.tipo;
                 modificar.descripcion = array.descripcion;
                 modificar.activo = array.activo;
+                modificar.monto = array.monto;
                 Conexion.getInstance().SaveChanges();
                 MessageBox.Show("El equipo " + array.tipo + " fue modificado exitosamente", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

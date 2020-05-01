@@ -287,6 +287,8 @@ namespace Proyecto_Pagos_Eventos {
             
             private global::System.Data.DataColumn columnactivo;
             
+            private global::System.Data.DataColumn columnmonto;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public EquipoDataTable() {
@@ -354,6 +356,14 @@ namespace Proyecto_Pagos_Eventos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn montoColumn {
+                get {
+                    return this.columnmonto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace Proyecto_Pagos_Eventos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public EquipoRow AddEquipoRow(System.Guid idEquipo, string tipo, string descripcion, bool activo) {
+            public EquipoRow AddEquipoRow(System.Guid idEquipo, string tipo, string descripcion, bool activo, decimal monto) {
                 EquipoRow rowEquipoRow = ((EquipoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         idEquipo,
                         tipo,
                         descripcion,
-                        activo};
+                        activo,
+                        monto};
                 rowEquipoRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowEquipoRow);
                 return rowEquipoRow;
@@ -429,6 +440,7 @@ namespace Proyecto_Pagos_Eventos {
                 this.columntipo = base.Columns["tipo"];
                 this.columndescripcion = base.Columns["descripcion"];
                 this.columnactivo = base.Columns["activo"];
+                this.columnmonto = base.Columns["monto"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -442,6 +454,8 @@ namespace Proyecto_Pagos_Eventos {
                 base.Columns.Add(this.columndescripcion);
                 this.columnactivo = new global::System.Data.DataColumn("activo", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnactivo);
+                this.columnmonto = new global::System.Data.DataColumn("monto", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmonto);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnidEquipo}, true));
                 this.columnidEquipo.AllowDBNull = false;
@@ -649,6 +663,22 @@ namespace Proyecto_Pagos_Eventos {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal monto {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableEquipo.montoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'monto\' de la tabla \'Equipo\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableEquipo.montoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IstipoNull() {
                 return this.IsNull(this.tableEquipo.tipoColumn);
             }
@@ -681,6 +711,18 @@ namespace Proyecto_Pagos_Eventos {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetactivoNull() {
                 this[this.tableEquipo.activoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsmontoNull() {
+                return this.IsNull(this.tableEquipo.montoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetmontoNull() {
+                this[this.tableEquipo.montoColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -847,10 +889,11 @@ namespace Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("tipo", "tipo");
             tableMapping.ColumnMappings.Add("descripcion", "descripcion");
             tableMapping.ColumnMappings.Add("activo", "activo");
+            tableMapping.ColumnMappings.Add("monto", "monto");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Equipo] WHERE (([idEquipo] = @Original_idEquipo) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_activo = 1 AND [activo] IS NULL) OR ([activo] = @Original_activo)))";
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM [dbo].[Equipo] WHERE (([idEquipo] = @Original_idEquipo) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_activo = 1 AND [activo] IS NULL) OR ([activo] = @Original_activo)) AND ((@IsNull_monto = 1 AND [monto] IS NULL) OR ([monto] = @Original_monto)))";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEquipo", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEquipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tipo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
@@ -859,25 +902,29 @@ namespace Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_activo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_activo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_monto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Equipo] ([idEquipo], [tipo], [descripcion], [activo]) VALUES (" +
-                "@idEquipo, @tipo, @descripcion, @activo);\r\nSELECT idEquipo, tipo, descripcion, a" +
-                "ctivo FROM Equipo WHERE (idEquipo = @idEquipo)";
+            this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[Equipo] ([idEquipo], [tipo], [descripcion], [activo], [monto])" +
+                " VALUES (@idEquipo, @tipo, @descripcion, @activo, @monto);\r\nSELECT idEquipo, tip" +
+                "o, descripcion, activo, monto FROM Equipo WHERE (idEquipo = @idEquipo)";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEquipo", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEquipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@activo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Equipo] SET [idEquipo] = @idEquipo, [tipo] = @tipo, [descripcion] = @descripcion, [activo] = @activo WHERE (([idEquipo] = @Original_idEquipo) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_activo = 1 AND [activo] IS NULL) OR ([activo] = @Original_activo)));
-SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEquipo)";
+            this._adapter.UpdateCommand.CommandText = @"UPDATE [dbo].[Equipo] SET [idEquipo] = @idEquipo, [tipo] = @tipo, [descripcion] = @descripcion, [activo] = @activo, [monto] = @monto WHERE (([idEquipo] = @Original_idEquipo) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_activo = 1 AND [activo] IS NULL) OR ([activo] = @Original_activo)) AND ((@IsNull_monto = 1 AND [monto] IS NULL) OR ([monto] = @Original_monto)));
+SELECT idEquipo, tipo, descripcion, activo, monto FROM Equipo WHERE (idEquipo = @idEquipo)";
             this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idEquipo", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEquipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@activo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_idEquipo", global::System.Data.SqlDbType.UniqueIdentifier, 0, global::System.Data.ParameterDirection.Input, 0, 0, "idEquipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_tipo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_tipo", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "tipo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -885,6 +932,8 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_descripcion", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "descripcion", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_activo", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_activo", global::System.Data.SqlDbType.Bit, 0, global::System.Data.ParameterDirection.Input, 0, 0, "activo", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_monto", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_monto", global::System.Data.SqlDbType.Money, 0, global::System.Data.ParameterDirection.Input, 0, 0, "monto", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -900,7 +949,7 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT idEquipo, tipo, descripcion, activo FROM dbo.Equipo";
+            this._commandCollection[0].CommandText = "SELECT idEquipo, tipo, descripcion, activo, monto FROM dbo.Equipo";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
         }
         
@@ -961,7 +1010,7 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo) {
+        public virtual int Delete(System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo, global::System.Nullable<decimal> Original_monto) {
             this.Adapter.DeleteCommand.Parameters[0].Value = ((System.Guid)(Original_idEquipo));
             if ((Original_tipo == null)) {
                 this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
@@ -987,6 +1036,14 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
                 this.Adapter.DeleteCommand.Parameters[5].Value = ((object)(1));
                 this.Adapter.DeleteCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
+            if ((Original_monto.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[8].Value = ((decimal)(Original_monto.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[7].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[8].Value = global::System.DBNull.Value;
+            }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -1007,7 +1064,7 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(System.Guid idEquipo, string tipo, string descripcion, global::System.Nullable<bool> activo) {
+        public virtual int Insert(System.Guid idEquipo, string tipo, string descripcion, global::System.Nullable<bool> activo, global::System.Nullable<decimal> monto) {
             this.Adapter.InsertCommand.Parameters[0].Value = ((System.Guid)(idEquipo));
             if ((tipo == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1026,6 +1083,12 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
             }
             else {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((monto.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((decimal)(monto.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1047,7 +1110,7 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(System.Guid idEquipo, string tipo, string descripcion, global::System.Nullable<bool> activo, System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo) {
+        public virtual int Update(System.Guid idEquipo, string tipo, string descripcion, global::System.Nullable<bool> activo, global::System.Nullable<decimal> monto, System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo, global::System.Nullable<decimal> Original_monto) {
             this.Adapter.UpdateCommand.Parameters[0].Value = ((System.Guid)(idEquipo));
             if ((tipo == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
@@ -1067,30 +1130,44 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((System.Guid)(Original_idEquipo));
-            if ((Original_tipo == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
+            if ((monto.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((decimal)(monto.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((string)(Original_tipo));
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[5].Value = ((System.Guid)(Original_idEquipo));
+            if ((Original_tipo == null)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(Original_tipo));
             }
             if ((Original_descripcion == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((string)(Original_descripcion));
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(Original_descripcion));
             }
             if ((Original_activo.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(0));
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(Original_activo.Value));
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((bool)(Original_activo.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((object)(1));
-                this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((Original_monto.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[13].Value = ((decimal)(Original_monto.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[13].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -1112,8 +1189,8 @@ SELECT idEquipo, tipo, descripcion, activo FROM Equipo WHERE (idEquipo = @idEqui
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string tipo, string descripcion, global::System.Nullable<bool> activo, System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo) {
-            return this.Update(Original_idEquipo, tipo, descripcion, activo, Original_idEquipo, Original_tipo, Original_descripcion, Original_activo);
+        public virtual int Update(string tipo, string descripcion, global::System.Nullable<bool> activo, global::System.Nullable<decimal> monto, System.Guid Original_idEquipo, string Original_tipo, string Original_descripcion, global::System.Nullable<bool> Original_activo, global::System.Nullable<decimal> Original_monto) {
+            return this.Update(Original_idEquipo, tipo, descripcion, activo, monto, Original_idEquipo, Original_tipo, Original_descripcion, Original_activo, Original_monto);
         }
     }
     

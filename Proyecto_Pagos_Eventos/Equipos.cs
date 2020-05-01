@@ -35,6 +35,7 @@ namespace Proyecto_Pagos_Eventos
             textBoxDesc.Clear();
             radioBno.Checked = false;
             radioBsi.Checked = false;
+            txtMonto.Clear();
         }
 
         private void cargarTabla()
@@ -56,7 +57,7 @@ namespace Proyecto_Pagos_Eventos
 
                 if (dr.Equals(DialogResult.Yes))
                 {
-                    if (textBoxDesc.Text != null && radioBno.Checked != false || radioBsi.Checked != false)
+                    if (textBoxDesc.Text != null && radioBno.Checked != false && txtMonto.Text != null || radioBsi.Checked != false)
                     {
                         if (id != Guid.Empty)
                         {
@@ -65,7 +66,8 @@ namespace Proyecto_Pagos_Eventos
                                 idEquipo = id,
                                 tipo = textBoxTipo.SelectedItem.ToString(),
                                 descripcion = textBoxDesc.Text,
-                                activo = activo
+                                activo = activo,
+                                monto = Convert.ToDecimal(txtMonto.Text)
                             };
 
                             CrudEquipos.Modificar(equipo);
@@ -79,7 +81,8 @@ namespace Proyecto_Pagos_Eventos
                                 idEquipo = Guid.NewGuid(),
                                 tipo = textBoxTipo.SelectedItem.ToString(),
                                 descripcion = textBoxDesc.Text,
-                                activo = activo
+                                activo = activo,
+                                monto = Convert.ToDecimal(txtMonto.Text)
                             };
 
                             CrudEquipos.Alta(newEquipo);
@@ -121,8 +124,9 @@ namespace Proyecto_Pagos_Eventos
             id = Guid.Parse(dgvEquipos.CurrentRow.Cells[0].Value.ToString());
             textBoxTipo.SelectedItem = dgvEquipos.CurrentRow.Cells[1].Value.ToString();
             textBoxDesc.Text = dgvEquipos.CurrentRow.Cells[2].Value.ToString();
+            txtMonto.Text = dgvEquipos.CurrentRow.Cells[3].Value.ToString();
 
-            if (dgvEquipos.CurrentRow.Cells[3].Value.Equals(true))
+            if (dgvEquipos.CurrentRow.Cells[4].Value.Equals(true))
             {
                 radioBsi.Checked = true;
             }

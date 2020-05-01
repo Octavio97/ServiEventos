@@ -152,7 +152,7 @@
             this.btnInicio.Location = new System.Drawing.Point(0, 4);
             this.btnInicio.Name = "btnInicio";
             this.btnInicio.Size = new System.Drawing.Size(250, 36);
-            this.btnInicio.TabIndex = 4;
+            this.btnInicio.TabIndex = 1;
             this.btnInicio.Text = "Inicio";
             this.btnInicio.UseVisualStyleBackColor = true;
             this.btnInicio.Click += new System.EventHandler(this.button1_Click);
@@ -194,7 +194,7 @@
             this.btnClientes.Location = new System.Drawing.Point(0, 46);
             this.btnClientes.Name = "btnClientes";
             this.btnClientes.Size = new System.Drawing.Size(250, 40);
-            this.btnClientes.TabIndex = 22;
+            this.btnClientes.TabIndex = 2;
             this.btnClientes.Text = "Clientes";
             this.btnClientes.UseVisualStyleBackColor = true;
             this.btnClientes.Click += new System.EventHandler(this.btnClientes_Click);
@@ -213,7 +213,7 @@
             this.btnCerrarSesion.Location = new System.Drawing.Point(0, 523);
             this.btnCerrarSesion.Name = "btnCerrarSesion";
             this.btnCerrarSesion.Size = new System.Drawing.Size(250, 40);
-            this.btnCerrarSesion.TabIndex = 21;
+            this.btnCerrarSesion.TabIndex = 6;
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
@@ -231,7 +231,7 @@
             this.btnComprobante.Location = new System.Drawing.Point(0, 176);
             this.btnComprobante.Name = "btnComprobante";
             this.btnComprobante.Size = new System.Drawing.Size(250, 40);
-            this.btnComprobante.TabIndex = 17;
+            this.btnComprobante.TabIndex = 5;
             this.btnComprobante.Text = "Comprobante";
             this.btnComprobante.UseVisualStyleBackColor = true;
             this.btnComprobante.Click += new System.EventHandler(this.btnComprobante_Click);
@@ -267,7 +267,7 @@
             this.btnServicio.Location = new System.Drawing.Point(3, 134);
             this.btnServicio.Name = "btnServicio";
             this.btnServicio.Size = new System.Drawing.Size(250, 36);
-            this.btnServicio.TabIndex = 1;
+            this.btnServicio.TabIndex = 4;
             this.btnServicio.Text = "Servicio";
             this.btnServicio.UseVisualStyleBackColor = true;
             this.btnServicio.Click += new System.EventHandler(this.btnServicio_Click);
