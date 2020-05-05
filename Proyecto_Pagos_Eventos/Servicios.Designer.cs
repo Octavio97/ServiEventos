@@ -28,13 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
             this.dgvEquipos = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtFf = new System.Windows.Forms.MaskedTextBox();
             this.lblFF = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.txtFi = new System.Windows.Forms.MaskedTextBox();
+            this.txtClientes = new System.Windows.Forms.ComboBox();
             this.radioBnoActivo = new System.Windows.Forms.RadioButton();
             this.radioBsiActivo = new System.Windows.Forms.RadioButton();
             this.lblActivo = new System.Windows.Forms.Label();
@@ -47,10 +48,24 @@
             this.btnGuardarServicio = new System.Windows.Forms.Button();
             this.lblCliente = new System.Windows.Forms.Label();
             this.dgvServicios = new System.Windows.Forms.DataGridView();
+            this.idComprobanteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idClienteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idUsuarioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.idServicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pagadoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.fechaInicioDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fechaFinalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.comprobantesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.serviciosDataSet = new Proyecto_Pagos_Eventos.ServiciosDataSet();
             this.labelTexto = new System.Windows.Forms.Label();
+            this.comprobantesTableAdapter = new Proyecto_Pagos_Eventos.ServiciosDataSetTableAdapters.ComprobantesTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -60,10 +75,10 @@
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
             this.panel1.Controls.Add(this.dgvEquipos);
             this.panel1.Controls.Add(this.btnClear);
-            this.panel1.Controls.Add(this.maskedTextBox2);
+            this.panel1.Controls.Add(this.txtFf);
             this.panel1.Controls.Add(this.lblFF);
-            this.panel1.Controls.Add(this.maskedTextBox1);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.txtFi);
+            this.panel1.Controls.Add(this.txtClientes);
             this.panel1.Controls.Add(this.radioBnoActivo);
             this.panel1.Controls.Add(this.radioBsiActivo);
             this.panel1.Controls.Add(this.lblActivo);
@@ -109,14 +124,15 @@
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
             // 
-            // maskedTextBox2
+            // txtFf
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(328, 90);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(76, 20);
-            this.maskedTextBox2.TabIndex = 4;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.txtFf.Location = new System.Drawing.Point(328, 90);
+            this.txtFf.Mask = "00/00/0000";
+            this.txtFf.Name = "txtFf";
+            this.txtFf.Size = new System.Drawing.Size(76, 20);
+            this.txtFf.TabIndex = 4;
+            this.txtFf.ValidatingType = typeof(System.DateTime);
+            this.txtFf.TextChanged += new System.EventHandler(this.txtFi_TextChanged);
             // 
             // lblFF
             // 
@@ -129,22 +145,23 @@
             this.lblFF.TabIndex = 40;
             this.lblFF.Text = "Fecha final:";
             // 
-            // maskedTextBox1
+            // txtFi
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(148, 90);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(76, 20);
-            this.maskedTextBox1.TabIndex = 3;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.txtFi.Location = new System.Drawing.Point(148, 90);
+            this.txtFi.Mask = "00/00/0000";
+            this.txtFi.Name = "txtFi";
+            this.txtFi.Size = new System.Drawing.Size(76, 20);
+            this.txtFi.TabIndex = 3;
+            this.txtFi.ValidatingType = typeof(System.DateTime);
+            this.txtFi.TextChanged += new System.EventHandler(this.txtFi_TextChanged);
             // 
-            // comboBox1
+            // txtClientes
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(133, 19);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(273, 21);
-            this.comboBox1.TabIndex = 1;
+            this.txtClientes.FormattingEnabled = true;
+            this.txtClientes.Location = new System.Drawing.Point(133, 19);
+            this.txtClientes.Name = "txtClientes";
+            this.txtClientes.Size = new System.Drawing.Size(273, 21);
+            this.txtClientes.TabIndex = 1;
             // 
             // radioBnoActivo
             // 
@@ -292,12 +309,97 @@
             this.dgvServicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvServicios.AutoGenerateColumns = false;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvServicios.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.idComprobanteDataGridViewTextBoxColumn,
+            this.idClienteDataGridViewTextBoxColumn,
+            this.idUsuarioDataGridViewTextBoxColumn,
+            this.idServicioDataGridViewTextBoxColumn,
+            this.montoDataGridViewTextBoxColumn,
+            this.pagadoDataGridViewCheckBoxColumn,
+            this.activoDataGridViewCheckBoxColumn,
+            this.fechaInicioDataGridViewTextBoxColumn,
+            this.fechaFinalDataGridViewTextBoxColumn});
+            this.dgvServicios.DataSource = this.comprobantesBindingSource;
             this.dgvServicios.Location = new System.Drawing.Point(44, 350);
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.Size = new System.Drawing.Size(775, 213);
             this.dgvServicios.TabIndex = 12;
+            // 
+            // idComprobanteDataGridViewTextBoxColumn
+            // 
+            this.idComprobanteDataGridViewTextBoxColumn.DataPropertyName = "idComprobante";
+            this.idComprobanteDataGridViewTextBoxColumn.HeaderText = "idComprobante";
+            this.idComprobanteDataGridViewTextBoxColumn.Name = "idComprobanteDataGridViewTextBoxColumn";
+            this.idComprobanteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idClienteDataGridViewTextBoxColumn
+            // 
+            this.idClienteDataGridViewTextBoxColumn.DataPropertyName = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.HeaderText = "idCliente";
+            this.idClienteDataGridViewTextBoxColumn.Name = "idClienteDataGridViewTextBoxColumn";
+            this.idClienteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idUsuarioDataGridViewTextBoxColumn
+            // 
+            this.idUsuarioDataGridViewTextBoxColumn.DataPropertyName = "idUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.HeaderText = "idUsuario";
+            this.idUsuarioDataGridViewTextBoxColumn.Name = "idUsuarioDataGridViewTextBoxColumn";
+            this.idUsuarioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // idServicioDataGridViewTextBoxColumn
+            // 
+            this.idServicioDataGridViewTextBoxColumn.DataPropertyName = "idServicio";
+            this.idServicioDataGridViewTextBoxColumn.HeaderText = "idServicio";
+            this.idServicioDataGridViewTextBoxColumn.Name = "idServicioDataGridViewTextBoxColumn";
+            this.idServicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn
+            // 
+            this.montoDataGridViewTextBoxColumn.DataPropertyName = "monto";
+            this.montoDataGridViewTextBoxColumn.HeaderText = "monto";
+            this.montoDataGridViewTextBoxColumn.Name = "montoDataGridViewTextBoxColumn";
+            this.montoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // pagadoDataGridViewCheckBoxColumn
+            // 
+            this.pagadoDataGridViewCheckBoxColumn.DataPropertyName = "pagado";
+            this.pagadoDataGridViewCheckBoxColumn.HeaderText = "pagado";
+            this.pagadoDataGridViewCheckBoxColumn.Name = "pagadoDataGridViewCheckBoxColumn";
+            this.pagadoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // activoDataGridViewCheckBoxColumn
+            // 
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "activo";
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
+            // 
+            // fechaInicioDataGridViewTextBoxColumn
+            // 
+            this.fechaInicioDataGridViewTextBoxColumn.DataPropertyName = "fechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.HeaderText = "fechaInicio";
+            this.fechaInicioDataGridViewTextBoxColumn.Name = "fechaInicioDataGridViewTextBoxColumn";
+            this.fechaInicioDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fechaFinalDataGridViewTextBoxColumn
+            // 
+            this.fechaFinalDataGridViewTextBoxColumn.DataPropertyName = "fechaFinal";
+            this.fechaFinalDataGridViewTextBoxColumn.HeaderText = "fechaFinal";
+            this.fechaFinalDataGridViewTextBoxColumn.Name = "fechaFinalDataGridViewTextBoxColumn";
+            this.fechaFinalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // comprobantesBindingSource
+            // 
+            this.comprobantesBindingSource.DataMember = "Comprobantes";
+            this.comprobantesBindingSource.DataSource = this.serviciosDataSet;
+            // 
+            // serviciosDataSet
+            // 
+            this.serviciosDataSet.DataSetName = "ServiciosDataSet";
+            this.serviciosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // labelTexto
             // 
@@ -309,6 +411,10 @@
             this.labelTexto.Size = new System.Drawing.Size(139, 21);
             this.labelTexto.TabIndex = 13;
             this.labelTexto.Text = "Lista de Servicios";
+            // 
+            // comprobantesTableAdapter
+            // 
+            this.comprobantesTableAdapter.ClearBeforeFill = true;
             // 
             // Servicios
             // 
@@ -322,10 +428,13 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Servicios";
             this.Text = "Servicios";
+            this.Load += new System.EventHandler(this.Servicios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -347,11 +456,23 @@
         private System.Windows.Forms.RadioButton radioBsiActivo;
         private System.Windows.Forms.Label lblActivo;
         private System.Windows.Forms.Label lblFF;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.MaskedTextBox txtFi;
+        private System.Windows.Forms.ComboBox txtClientes;
         private System.Windows.Forms.Button btnClear;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
+        private System.Windows.Forms.MaskedTextBox txtFf;
         private System.Windows.Forms.DataGridView dgvEquipos;
         private System.Windows.Forms.Label labelTexto;
+        private ServiciosDataSet serviciosDataSet;
+        private System.Windows.Forms.BindingSource comprobantesBindingSource;
+        private ServiciosDataSetTableAdapters.ComprobantesTableAdapter comprobantesTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idComprobanteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idClienteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idUsuarioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idServicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pagadoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinalDataGridViewTextBoxColumn;
     }
 }

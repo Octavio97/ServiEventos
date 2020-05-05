@@ -59,6 +59,7 @@
     <Compile Include="Clases\Conexion.cs" />
     <Compile Include="Clases\CrudClientes.cs" />
     <Compile Include="Clases\CrudEquipos.cs" />
+    <Compile Include="Clases\CrudServicios.cs" />
     <Compile Include="Cliente.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -137,6 +138,11 @@
     <Compile Include="Servicios.Designer.cs">
       <DependentUpon>Servicios.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiciosDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,6 +210,17 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="ServiciosDataSet.xsc">
+      <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="ServiciosDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ServiciosDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ServiciosDataSet.xss">
+      <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
