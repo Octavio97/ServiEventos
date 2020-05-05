@@ -13,6 +13,7 @@ namespace Proyecto_Pagos_Eventos
 {
     public partial class WFormsMenu : Form
     {
+        private bool screen = true;
         public WFormsMenu()
         {
             InitializeComponent();
@@ -33,24 +34,16 @@ namespace Proyecto_Pagos_Eventos
 
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            /*this.WindowState = FormWindowState.Maximized;
-            lx = this.Location.X;
-            ly = this.Location.Y;
-            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
-            this.Location = Screen.PrimaryScreen.WorkingArea.Location;
-            btnRestaurar.Visible = true;
-            btnMaximizar.Visible = false;
-            */
-        }
-
-        private void btnRestaurar_Click(object sender, EventArgs e)
-        {
-            /*this.WindowState = FormWindowState.Normal;
-            this.Size = new Size(1300, 650);
-            this.Location = new Point(lx, ly);
-            btnRestaurar.Visible = false;
-            btnMaximizar.Visible = true;
-            */
+            if (screen.Equals(true))
+            {
+                this.WindowState = FormWindowState.Maximized;
+                screen = false;
+            }
+            else
+            {
+                this.WindowState = FormWindowState.Normal;
+                screen = true;
+            }
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -61,7 +54,6 @@ namespace Proyecto_Pagos_Eventos
         private void Menu_Load(object sender, EventArgs e)
         {
            // Para comenzar con la interfaz con la opcion de inicio //
-            
             button1_Click(null, e);
         }
 

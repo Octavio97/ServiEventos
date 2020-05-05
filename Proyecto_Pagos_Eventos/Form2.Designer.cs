@@ -120,7 +120,6 @@
             this.btnRestaurar.TabIndex = 14;
             this.btnRestaurar.TabStop = false;
             this.btnRestaurar.Visible = false;
-            this.btnRestaurar.Click += new System.EventHandler(this.btnRestaurar_Click);
             // 
             // PanelMenu
             // 
@@ -279,6 +278,9 @@
             // 
             // panel_Contenedor
             // 
+            this.panel_Contenedor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panel_Contenedor.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel_Contenedor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Contenedor.Location = new System.Drawing.Point(247, 25);
@@ -328,6 +330,6 @@
         private System.Windows.Forms.Label labelFecha;
         private System.Windows.Forms.Timer HoraFecha;
         private System.Windows.Forms.Button btnInicio;
-        private System.Windows.Forms.Panel panel_Contenedor;
+        public System.Windows.Forms.Panel panel_Contenedor;
     }
 }

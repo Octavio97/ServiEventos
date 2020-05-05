@@ -27,6 +27,7 @@ namespace Proyecto_Pagos_Eventos
         {
             // TODO: esta línea de código carga datos en la tabla 'equiposDataSet.Equipo' Puede moverla o quitarla según sea necesario.
             this.equipoTableAdapter.Fill(this.equiposDataSet.Equipo);
+            this.dgvEquipos.AutoResizeColumns();
             cargarTabla();
         }
 

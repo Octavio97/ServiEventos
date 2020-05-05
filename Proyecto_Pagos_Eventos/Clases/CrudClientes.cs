@@ -55,5 +55,23 @@ namespace Proyecto_Pagos_Eventos.Clases
                 MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public static bool VerificarClientes(string tel)
+        {
+            bool i = true;
+
+            var verClientes = Conexion.getInstance().Clientes.Where(w => w.telefono == tel).FirstOrDefault();
+
+            if (verClientes != null)
+            {
+                i = true;
+            }
+            else
+            {
+                i = false;
+            }
+
+            return i;
+        }
     }
 }

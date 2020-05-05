@@ -60,6 +60,7 @@ namespace Proyecto_Pagos_Eventos
         {
             // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Clientes' Puede moverla o quitarla según sea necesario.
             this.clientesTableAdapter.Fill(this.clientesDataSet.Clientes);
+            this.dgvClientes.AutoResizeColumns();
             cargarTabla();
         }
 
@@ -79,39 +80,46 @@ namespace Proyecto_Pagos_Eventos
                     radioBno.Checked != false ||
                     radioBsi.Checked != false)
                     {
-                        if (id != Guid.Empty)
+                        if (CrudClientes.VerificarClientes(textBoxTel.Text).Equals(false))
                         {
-                            Clientes client = new Clientes
+                            if (id != Guid.Empty)
                             {
-                                idCliente = id,
-                                nombre = textBoxNom.Text,
-                                apellidos = textBoxApe.Text,
-                                telefono = textBoxTel.Text,
-                                celular = textBoxCel.Text,
-                                correo = textBoxEmail.Text,
-                                activo = activo
-                            };
+                                Clientes client = new Clientes
+                                {
+                                    idCliente = id,
+                                    nombre = textBoxNom.Text,
+                                    apellidos = textBoxApe.Text,
+                                    telefono = textBoxTel.Text,
+                                    celular = textBoxCel.Text,
+                                    correo = textBoxEmail.Text,
+                                    activo = activo
+                                };
 
-                            CrudClientes.Modificar(client);
-                            clearInterface();
-                            cargarTabla();
+                                CrudClientes.Modificar(client);
+                                clearInterface();
+                                cargarTabla();
+                            }
+                            else
+                            {
+                                Clientes newClient = new Clientes
+                                {
+                                    idCliente = Guid.NewGuid(),
+                                    nombre = textBoxNom.Text,
+                                    apellidos = textBoxApe.Text,
+                                    telefono = textBoxTel.Text,
+                                    celular = textBoxCel.Text,
+                                    correo = textBoxEmail.Text,
+                                    activo = activo
+                                };
+
+                                CrudClientes.Alta(newClient);
+                                clearInterface();
+                                cargarTabla();
+                            }
                         }
                         else
                         {
-                            Clientes newClient = new Clientes
-                            {
-                                idCliente = Guid.NewGuid(),
-                                nombre = textBoxNom.Text,
-                                apellidos = textBoxApe.Text,
-                                telefono = textBoxTel.Text,
-                                celular = textBoxCel.Text,
-                                correo = textBoxEmail.Text,
-                                activo = activo
-                            };
-
-                            CrudClientes.Alta(newClient);
-                            clearInterface();
-                            cargarTabla();
+                            MessageBox.Show("El cliente " + textBoxNom.Text + " " + textBoxApe.Text + "ya existe si quiere modificar solo seleccionelo en las tablas de abajo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
                     }
                     else
