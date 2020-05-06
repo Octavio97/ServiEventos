@@ -24,6 +24,12 @@ namespace Proyecto_Pagos_Eventos
             this.comprobantesTableAdapter.Fill(this.serviciosDataSet.Comprobantes);
             this.dgvServicios.AutoResizeColumns();
             cargarTabla();
+
+            var lista = Conexion.getInstance().Clientes.ToList();
+
+            txtClientes.DataSource = lista;
+            txtClientes.DisplayMember = "nombre";
+            txtClientes.ValueMember = "idCliente";
         }
 
         private void cargarTabla()
@@ -34,7 +40,7 @@ namespace Proyecto_Pagos_Eventos
 
         private void txtFi_TextChanged(object sender, EventArgs e)
         {
-            CrudServicios.TraerEquipo(txtFi.Text, txtFf.Text);
+            CrudServicios.TraerEquipo(Convert.ToDateTime(txtFi.Text), Convert.ToDateTime(txtFf.Text));
         }
     }
 }

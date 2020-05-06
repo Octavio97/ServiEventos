@@ -48,7 +48,7 @@ namespace Proyecto_Pagos_Eventos.Clases
             }
         }
 
-        public static IEnumerable<Equipo> TraerEquipo(string fi, string ff)
+        public static IEnumerable<Equipo> TraerEquipo(DateTime fi, DateTime ff)
         {
             return (
                 from e in Conexion.getInstance().Equipo
@@ -56,7 +56,7 @@ namespace Proyecto_Pagos_Eventos.Clases
                 on e.idEquipo equals s.idEquipo
                 join c in Conexion.getInstance().Comprobantes
                 on s.idServicio equals c.idServicio
-                where c.fechaInicio != DateTime.Today
+                where c.fechaInicio != DateTime.Today && c.fechaInicio < fi && c.fechaFinal > ff
                 select new Equipo()
                 {
                     idEquipo = e.idEquipo,
