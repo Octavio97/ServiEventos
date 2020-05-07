@@ -128,6 +128,7 @@ namespace Proyecto_Pagos_Eventos
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+                lblLoad.Visible = false;
             }
         }
 
