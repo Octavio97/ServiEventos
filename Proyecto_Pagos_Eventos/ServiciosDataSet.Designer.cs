@@ -1133,7 +1133,7 @@ SELECT idComprobante, idCliente, idUsuario, idServicio, monto, pagado, activo, f
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = "Data Source=OCTAVIO-PC;Initial Catalog=EventosBD;Integrated Security=True";
+            this._connection.ConnectionString = "Data Source=DESKTOP-2HV9CS5;Initial Catalog=EventosBD;Integrated Security=True";
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

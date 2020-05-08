@@ -305,8 +305,10 @@
             this.dataGridViewCheckBoxColumn1});
             this.dgvClientes.DataSource = this.clientesBindingSource;
             this.dgvClientes.Location = new System.Drawing.Point(44, 320);
+            this.dgvClientes.MultiSelect = false;
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.ReadOnly = true;
+            this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(775, 232);
             this.dgvClientes.TabIndex = 9;
             this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);

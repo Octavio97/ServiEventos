@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.dgvEquiposServicio = new System.Windows.Forms.DataGridView();
             this.dgvEquipos = new System.Windows.Forms.DataGridView();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtFf = new System.Windows.Forms.MaskedTextBox();
@@ -61,11 +62,23 @@
             this.serviciosDataSet = new Proyecto_Pagos_Eventos.ServiciosDataSet();
             this.labelTexto = new System.Windows.Forms.Label();
             this.comprobantesTableAdapter = new Proyecto_Pagos_Eventos.ServiciosDataSetTableAdapters.ComprobantesTableAdapter();
+            this.tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.monto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoServiciosDataSet = new Proyecto_Pagos_Eventos.EquipoServiciosDataSet();
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquipoServiciosDataSetTableAdapters.EquipoTableAdapter();
+            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.montoDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposServicio)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoServiciosDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,6 +86,7 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
+            this.panel1.Controls.Add(this.dgvEquiposServicio);
             this.panel1.Controls.Add(this.dgvEquipos);
             this.panel1.Controls.Add(this.btnClear);
             this.panel1.Controls.Add(this.txtFf);
@@ -92,18 +106,46 @@
             this.panel1.Controls.Add(this.lblCliente);
             this.panel1.Location = new System.Drawing.Point(44, 12);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(775, 292);
+            this.panel1.Size = new System.Drawing.Size(775, 301);
             this.panel1.TabIndex = 2;
+            // 
+            // dgvEquiposServicio
+            // 
+            this.dgvEquiposServicio.AllowUserToAddRows = false;
+            this.dgvEquiposServicio.AllowUserToDeleteRows = false;
+            this.dgvEquiposServicio.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvEquiposServicio.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tipo,
+            this.descripcion,
+            this.monto});
+            this.dgvEquiposServicio.Location = new System.Drawing.Point(409, 169);
+            this.dgvEquiposServicio.Name = "dgvEquiposServicio";
+            this.dgvEquiposServicio.ReadOnly = true;
+            this.dgvEquiposServicio.Size = new System.Drawing.Size(343, 119);
+            this.dgvEquiposServicio.TabIndex = 41;
+            this.dgvEquiposServicio.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquiposServicio_CellContentClick);
             // 
             // dgvEquipos
             // 
+            this.dgvEquipos.AllowUserToAddRows = false;
+            this.dgvEquipos.AllowUserToDeleteRows = false;
             this.dgvEquipos.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvEquipos.AutoGenerateColumns = false;
             this.dgvEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvEquipos.Location = new System.Drawing.Point(424, 19);
+            this.dgvEquipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.tipoDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.montoDataGridViewTextBoxColumn1});
+            this.dgvEquipos.DataSource = this.equipoBindingSource;
+            this.dgvEquipos.Location = new System.Drawing.Point(42, 169);
+            this.dgvEquipos.MultiSelect = false;
             this.dgvEquipos.Name = "dgvEquipos";
-            this.dgvEquipos.Size = new System.Drawing.Size(328, 261);
+            this.dgvEquipos.ReadOnly = true;
+            this.dgvEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvEquipos.Size = new System.Drawing.Size(343, 119);
             this.dgvEquipos.TabIndex = 11;
+            this.dgvEquipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipos_CellContentClick);
             // 
             // btnClear
             // 
@@ -116,13 +158,14 @@
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.delete;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(42, 240);
+            this.btnClear.Location = new System.Drawing.Point(436, 53);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(250, 40);
             this.btnClear.TabIndex = 10;
             this.btnClear.Text = "Limpiar";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // txtFf
             // 
@@ -132,7 +175,6 @@
             this.txtFf.Size = new System.Drawing.Size(76, 20);
             this.txtFf.TabIndex = 4;
             this.txtFf.ValidatingType = typeof(System.DateTime);
-            this.txtFf.TextChanged += new System.EventHandler(this.txtFi_TextChanged);
             // 
             // lblFF
             // 
@@ -153,7 +195,6 @@
             this.txtFi.Size = new System.Drawing.Size(76, 20);
             this.txtFi.TabIndex = 3;
             this.txtFi.ValidatingType = typeof(System.DateTime);
-            this.txtFi.TextChanged += new System.EventHandler(this.txtFi_TextChanged);
             // 
             // txtClientes
             // 
@@ -169,7 +210,7 @@
             this.radioBnoActivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioBnoActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioBnoActivo.ForeColor = System.Drawing.Color.White;
-            this.radioBnoActivo.Location = new System.Drawing.Point(191, 150);
+            this.radioBnoActivo.Location = new System.Drawing.Point(584, 19);
             this.radioBnoActivo.Name = "radioBnoActivo";
             this.radioBnoActivo.Size = new System.Drawing.Size(49, 25);
             this.radioBnoActivo.TabIndex = 8;
@@ -183,7 +224,7 @@
             this.radioBsiActivo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioBsiActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioBsiActivo.ForeColor = System.Drawing.Color.White;
-            this.radioBsiActivo.Location = new System.Drawing.Point(133, 150);
+            this.radioBsiActivo.Location = new System.Drawing.Point(526, 19);
             this.radioBsiActivo.Name = "radioBsiActivo";
             this.radioBsiActivo.Size = new System.Drawing.Size(40, 25);
             this.radioBsiActivo.TabIndex = 7;
@@ -196,7 +237,7 @@
             this.lblActivo.AutoSize = true;
             this.lblActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActivo.ForeColor = System.Drawing.Color.White;
-            this.lblActivo.Location = new System.Drawing.Point(39, 150);
+            this.lblActivo.Location = new System.Drawing.Point(432, 19);
             this.lblActivo.Name = "lblActivo";
             this.lblActivo.Size = new System.Drawing.Size(61, 21);
             this.lblActivo.TabIndex = 34;
@@ -208,7 +249,7 @@
             this.radioBnoPagado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioBnoPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioBnoPagado.ForeColor = System.Drawing.Color.White;
-            this.radioBnoPagado.Location = new System.Drawing.Point(192, 120);
+            this.radioBnoPagado.Location = new System.Drawing.Point(192, 126);
             this.radioBnoPagado.Name = "radioBnoPagado";
             this.radioBnoPagado.Size = new System.Drawing.Size(49, 25);
             this.radioBnoPagado.TabIndex = 6;
@@ -222,7 +263,7 @@
             this.radioBsiPagado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.radioBsiPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.radioBsiPagado.ForeColor = System.Drawing.Color.White;
-            this.radioBsiPagado.Location = new System.Drawing.Point(134, 120);
+            this.radioBsiPagado.Location = new System.Drawing.Point(134, 126);
             this.radioBsiPagado.Name = "radioBsiPagado";
             this.radioBsiPagado.Size = new System.Drawing.Size(40, 25);
             this.radioBsiPagado.TabIndex = 5;
@@ -235,7 +276,7 @@
             this.lblPagado.AutoSize = true;
             this.lblPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPagado.ForeColor = System.Drawing.Color.White;
-            this.lblPagado.Location = new System.Drawing.Point(39, 120);
+            this.lblPagado.Location = new System.Drawing.Point(39, 126);
             this.lblPagado.Name = "lblPagado";
             this.lblPagado.Size = new System.Drawing.Size(69, 21);
             this.lblPagado.TabIndex = 31;
@@ -284,7 +325,7 @@
             this.btnGuardarServicio.ForeColor = System.Drawing.Color.White;
             this.btnGuardarServicio.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.save;
             this.btnGuardarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardarServicio.Location = new System.Drawing.Point(43, 194);
+            this.btnGuardarServicio.Location = new System.Drawing.Point(436, 99);
             this.btnGuardarServicio.Name = "btnGuardarServicio";
             this.btnGuardarServicio.Size = new System.Drawing.Size(250, 40);
             this.btnGuardarServicio.TabIndex = 9;
@@ -305,6 +346,7 @@
             // 
             // dgvServicios
             // 
+            this.dgvServicios.AllowUserToAddRows = false;
             this.dgvServicios.AllowUserToDeleteRows = false;
             this.dgvServicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
@@ -323,8 +365,10 @@
             this.fechaFinalDataGridViewTextBoxColumn});
             this.dgvServicios.DataSource = this.comprobantesBindingSource;
             this.dgvServicios.Location = new System.Drawing.Point(44, 350);
+            this.dgvServicios.MultiSelect = false;
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
+            this.dgvServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicios.Size = new System.Drawing.Size(775, 213);
             this.dgvServicios.TabIndex = 12;
             // 
@@ -406,7 +450,7 @@
             this.labelTexto.AutoSize = true;
             this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTexto.ForeColor = System.Drawing.Color.White;
-            this.labelTexto.Location = new System.Drawing.Point(40, 316);
+            this.labelTexto.Location = new System.Drawing.Point(40, 326);
             this.labelTexto.Name = "labelTexto";
             this.labelTexto.Size = new System.Drawing.Size(139, 21);
             this.labelTexto.TabIndex = 13;
@@ -415,6 +459,63 @@
             // comprobantesTableAdapter
             // 
             this.comprobantesTableAdapter.ClearBeforeFill = true;
+            // 
+            // tipo
+            // 
+            this.tipo.HeaderText = "tipo";
+            this.tipo.Name = "tipo";
+            this.tipo.ReadOnly = true;
+            // 
+            // descripcion
+            // 
+            this.descripcion.HeaderText = "descripcion";
+            this.descripcion.Name = "descripcion";
+            this.descripcion.ReadOnly = true;
+            this.descripcion.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.descripcion.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // monto
+            // 
+            this.monto.HeaderText = "monto";
+            this.monto.Name = "monto";
+            this.monto.ReadOnly = true;
+            this.monto.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.monto.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // equipoServiciosDataSet
+            // 
+            this.equipoServiciosDataSet.DataSetName = "EquipoServiciosDataSet";
+            this.equipoServiciosDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataMember = "Equipo";
+            this.equipoBindingSource.DataSource = this.equipoServiciosDataSet;
+            // 
+            // equipoTableAdapter
+            // 
+            this.equipoTableAdapter.ClearBeforeFill = true;
+            // 
+            // tipoDataGridViewTextBoxColumn
+            // 
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // descripcionDataGridViewTextBoxColumn
+            // 
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // montoDataGridViewTextBoxColumn1
+            // 
+            this.montoDataGridViewTextBoxColumn1.DataPropertyName = "monto";
+            this.montoDataGridViewTextBoxColumn1.HeaderText = "monto";
+            this.montoDataGridViewTextBoxColumn1.Name = "montoDataGridViewTextBoxColumn1";
+            this.montoDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // Servicios
             // 
@@ -431,10 +532,13 @@
             this.Load += new System.EventHandler(this.Servicios_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposServicio)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoServiciosDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -474,5 +578,15 @@
         private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaInicioDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn fechaFinalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridView dgvEquiposServicio;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcion;
+        private System.Windows.Forms.DataGridViewTextBoxColumn monto;
+        private EquipoServiciosDataSet equipoServiciosDataSet;
+        private System.Windows.Forms.BindingSource equipoBindingSource;
+        private EquipoServiciosDataSetTableAdapters.EquipoTableAdapter equipoTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn1;
     }
 }

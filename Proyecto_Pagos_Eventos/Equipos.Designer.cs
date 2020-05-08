@@ -43,15 +43,15 @@
             this.labelTipo = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.dgvEquipos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewCheckBoxColumn2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.equiposDataSet = new Proyecto_Pagos_Eventos.EquiposDataSet();
-            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.labelTexto = new System.Windows.Forms.Label();
+            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
@@ -240,53 +240,55 @@
             this.dgvEquipos.AutoGenerateColumns = false;
             this.dgvEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewCheckBoxColumn2});
+            this.idEquipoDataGridViewTextBoxColumn,
+            this.tipoDataGridViewTextBoxColumn,
+            this.descripcionDataGridViewTextBoxColumn,
+            this.activoDataGridViewCheckBoxColumn,
+            this.dataGridViewTextBoxColumn1});
             this.dgvEquipos.DataSource = this.equipoBindingSource;
             this.dgvEquipos.Location = new System.Drawing.Point(44, 311);
+            this.dgvEquipos.MultiSelect = false;
             this.dgvEquipos.Name = "dgvEquipos";
             this.dgvEquipos.ReadOnly = true;
+            this.dgvEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquipos.Size = new System.Drawing.Size(775, 252);
             this.dgvEquipos.TabIndex = 27;
             this.dgvEquipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipos_CellContentClick);
             // 
-            // dataGridViewTextBoxColumn4
+            // idEquipoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "idEquipo";
-            this.dataGridViewTextBoxColumn4.HeaderText = "idEquipo";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.idEquipoDataGridViewTextBoxColumn.DataPropertyName = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.HeaderText = "idEquipo";
+            this.idEquipoDataGridViewTextBoxColumn.Name = "idEquipoDataGridViewTextBoxColumn";
+            this.idEquipoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // tipoDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "tipo";
-            this.dataGridViewTextBoxColumn5.HeaderText = "tipo";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.tipoDataGridViewTextBoxColumn.DataPropertyName = "tipo";
+            this.tipoDataGridViewTextBoxColumn.HeaderText = "tipo";
+            this.tipoDataGridViewTextBoxColumn.Name = "tipoDataGridViewTextBoxColumn";
+            this.tipoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn6
+            // descripcionDataGridViewTextBoxColumn
             // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "descripcion";
-            this.dataGridViewTextBoxColumn6.HeaderText = "descripcion";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.descripcionDataGridViewTextBoxColumn.DataPropertyName = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.HeaderText = "descripcion";
+            this.descripcionDataGridViewTextBoxColumn.Name = "descripcionDataGridViewTextBoxColumn";
+            this.descripcionDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn7
+            // activoDataGridViewCheckBoxColumn
             // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "monto";
-            this.dataGridViewTextBoxColumn7.HeaderText = "monto";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.activoDataGridViewCheckBoxColumn.DataPropertyName = "activo";
+            this.activoDataGridViewCheckBoxColumn.HeaderText = "activo";
+            this.activoDataGridViewCheckBoxColumn.Name = "activoDataGridViewCheckBoxColumn";
+            this.activoDataGridViewCheckBoxColumn.ReadOnly = true;
             // 
-            // dataGridViewCheckBoxColumn2
+            // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewCheckBoxColumn2.DataPropertyName = "activo";
-            this.dataGridViewCheckBoxColumn2.HeaderText = "activo";
-            this.dataGridViewCheckBoxColumn2.Name = "dataGridViewCheckBoxColumn2";
-            this.dataGridViewCheckBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "monto";
+            this.dataGridViewTextBoxColumn1.HeaderText = "monto";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // equipoBindingSource
             // 
@@ -298,10 +300,6 @@
             this.equiposDataSet.DataSetName = "EquiposDataSet";
             this.equiposDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // equipoTableAdapter
-            // 
-            this.equipoTableAdapter.ClearBeforeFill = true;
-            // 
             // labelTexto
             // 
             this.labelTexto.AutoSize = true;
@@ -312,6 +310,10 @@
             this.labelTexto.Size = new System.Drawing.Size(132, 21);
             this.labelTexto.TabIndex = 28;
             this.labelTexto.Text = "Lista de Equipos";
+            // 
+            // equipoTableAdapter
+            // 
+            this.equipoTableAdapter.ClearBeforeFill = true;
             // 
             // Equipos
             // 
@@ -347,14 +349,6 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.DataGridView dgvEquipos;
         private System.Windows.Forms.ComboBox textBoxTipo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn1;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.RadioButton radioBno;
         private System.Windows.Forms.RadioButton radioBsi;
@@ -362,14 +356,14 @@
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.MaskedTextBox txtMonto;
         private System.Windows.Forms.DataGridViewTextBoxColumn montoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label labelTexto;
         private EquiposDataSet equiposDataSet;
         private System.Windows.Forms.BindingSource equipoBindingSource;
         private EquiposDataSetTableAdapters.EquipoTableAdapter equipoTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewCheckBoxColumn dataGridViewCheckBoxColumn2;
-        private System.Windows.Forms.Label labelTexto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn idEquipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tipoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn descripcionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn activoDataGridViewCheckBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
     }
 }

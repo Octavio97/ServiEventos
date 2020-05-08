@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection ConnectionStringObject="Data Source=OCTAVIO-PC;Initial Catalog=EventosBD;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="octavio-pc.EventosBD.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
+          <Connection ConnectionStringObject="Data Source=DESKTOP-2HV9CS5;Initial Catalog=EventosBD;Integrated Security=True" IsAppSettingsProperty="false" Modifier="Assembly" Name="desktop-2hv9cs5.EventosBD.dbo" ParameterPrefix="@" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="EquipoTableAdapter" GeneratorDataComponentClassName="EquipoTableAdapter" Name="Equipo" UserDataComponentName="EquipoTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="octavio-pc.EventosBD.dbo" DbObjectName="EventosBD.dbo.Equipo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="desktop-2hv9cs5.EventosBD.dbo" DbObjectName="EventosBD.dbo.Equipo" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <DeleteCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="false">
                     <CommandText>DELETE FROM [dbo].[Equipo] WHERE (([idEquipo] = @Original_idEquipo) AND ((@IsNull_tipo = 1 AND [tipo] IS NULL) OR ([tipo] = @Original_tipo)) AND ((@IsNull_descripcion = 1 AND [descripcion] IS NULL) OR ([descripcion] = @Original_descripcion)) AND ((@IsNull_activo = 1 AND [activo] IS NULL) OR ([activo] = @Original_activo)) AND ((@IsNull_monto = 1 AND [monto] IS NULL) OR ([monto] = @Original_monto)))</CommandText>

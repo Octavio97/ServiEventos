@@ -20,9 +20,11 @@ namespace Proyecto_Pagos_Eventos
 
         private void Servicios_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'serviciosDataSet.Comprobantes' Puede moverla o quitarla según sea necesario.
-            this.comprobantesTableAdapter.Fill(this.serviciosDataSet.Comprobantes);
+            // TODO: esta línea de código carga datos en la tabla 'equipoServiciosDataSet.Equipo' Puede moverla o quitarla según sea necesario.
+            this.equipoTableAdapter.Fill(this.equipoServiciosDataSet.Equipo);
             this.dgvServicios.AutoResizeColumns();
+            this.dgvEquipos.AutoResizeColumns();
+            this.dgvEquiposServicio.AutoResizeColumns();
             cargarTabla();
 
             var lista = Conexion.getInstance().Clientes.ToList();
@@ -36,11 +38,37 @@ namespace Proyecto_Pagos_Eventos
         {
             dgvServicios.AutoGenerateColumns = false;
             dgvServicios.DataSource = CrudServicios.Consulta();
+            dgvEquipos.DataSource = CrudServicios.TraerEquipo();
+        }
+        
+        private void clearInterface()
+        {
+            txtMonto.Clear();
+            txtFi.Clear();
+            txtFf.Clear();
+            radioBnoActivo.Checked = false;
+            radioBsiActivo.Checked = false;
+            radioBsiPagado.Checked = false;
+            radioBnoPagado.Checked = false;
         }
 
-        private void txtFi_TextChanged(object sender, EventArgs e)
+        private void btnClear_Click(object sender, EventArgs e)
         {
-            CrudServicios.TraerEquipo(Convert.ToDateTime(txtFi.Text), Convert.ToDateTime(txtFf.Text));
+            clearInterface();
+        }
+
+        private void dgvEquipos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dgvEquiposServicio.AutoResizeColumns();
+            dgvEquiposServicio.Rows.Add(dgvEquipos.CurrentRow.Cells[0].Value,
+                                        dgvEquipos.CurrentRow.Cells[1].Value,
+                                        dgvEquipos.CurrentRow.Cells[2].Value);
+        }
+
+        private void dgvEquiposServicio_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            this.dgvEquiposServicio.AutoResizeColumns();
+            dgvEquiposServicio.Rows.Remove(dgvEquiposServicio.CurrentRow);
         }
     }
 }
