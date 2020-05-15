@@ -121,19 +121,26 @@ namespace Proyecto_Pagos_Eventos
 
         private void dgvEquipos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            clearInterface();
-            id = Guid.Parse(dgvEquipos.CurrentRow.Cells[0].Value.ToString());
-            textBoxTipo.SelectedItem = dgvEquipos.CurrentRow.Cells[1].Value.ToString();
-            textBoxDesc.Text = dgvEquipos.CurrentRow.Cells[2].Value.ToString();
-            txtMonto.Text = dgvEquipos.CurrentRow.Cells[4].Value.ToString();
+            try
+            {
+                clearInterface();
+                id = Guid.Parse(dgvEquipos.CurrentRow.Cells[0].Value.ToString());
+                textBoxTipo.SelectedItem = dgvEquipos.CurrentRow.Cells[1].Value.ToString();
+                textBoxDesc.Text = dgvEquipos.CurrentRow.Cells[2].Value.ToString();
+                txtMonto.Text = dgvEquipos.CurrentRow.Cells[4].Value.ToString().ToString();
 
-            if (dgvEquipos.CurrentRow.Cells[3].Value.Equals(true))
-            {
-                radioBsi.Checked = true;
+                if (dgvEquipos.CurrentRow.Cells[3].Value.Equals(true))
+                {
+                    radioBsi.Checked = true;
+                }
+                else
+                {
+                    radioBno.Checked = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                radioBno.Checked = true;
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -43,19 +43,19 @@
             this.labelTipo = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.dgvEquipos = new System.Windows.Forms.DataGridView();
-            this.labelTexto = new System.Windows.Forms.Label();
-            this.equiposDataSet = new Proyecto_Pagos_Eventos.EquiposDataSet();
-            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equiposDataSet = new Proyecto_Pagos_Eventos.EquiposDataSet();
+            this.labelTexto = new System.Windows.Forms.Label();
+            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -82,7 +82,7 @@
             // txtMonto
             // 
             this.txtMonto.Location = new System.Drawing.Point(494, 29);
-            this.txtMonto.Mask = "99999";
+            this.txtMonto.Mask = "9999.00";
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
             this.txtMonto.TabIndex = 2;
@@ -259,31 +259,6 @@
             this.dgvEquipos.TabIndex = 8;
             this.dgvEquipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipos_CellContentClick);
             // 
-            // labelTexto
-            // 
-            this.labelTexto.AutoSize = true;
-            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTexto.ForeColor = System.Drawing.Color.White;
-            this.labelTexto.Location = new System.Drawing.Point(40, 280);
-            this.labelTexto.Name = "labelTexto";
-            this.labelTexto.Size = new System.Drawing.Size(132, 21);
-            this.labelTexto.TabIndex = 28;
-            this.labelTexto.Text = "Lista de Equipos";
-            // 
-            // equiposDataSet
-            // 
-            this.equiposDataSet.DataSetName = "EquiposDataSet";
-            this.equiposDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // equipoBindingSource
-            // 
-            this.equipoBindingSource.DataMember = "Equipo";
-            this.equipoBindingSource.DataSource = this.equiposDataSet;
-            // 
-            // equipoTableAdapter
-            // 
-            this.equipoTableAdapter.ClearBeforeFill = true;
-            // 
             // idEquipoDataGridViewTextBoxColumn
             // 
             this.idEquipoDataGridViewTextBoxColumn.DataPropertyName = "idEquipo";
@@ -319,6 +294,31 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataMember = "Equipo";
+            this.equipoBindingSource.DataSource = this.equiposDataSet;
+            // 
+            // equiposDataSet
+            // 
+            this.equiposDataSet.DataSetName = "EquiposDataSet";
+            this.equiposDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // labelTexto
+            // 
+            this.labelTexto.AutoSize = true;
+            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTexto.ForeColor = System.Drawing.Color.White;
+            this.labelTexto.Location = new System.Drawing.Point(40, 280);
+            this.labelTexto.Name = "labelTexto";
+            this.labelTexto.Size = new System.Drawing.Size(132, 21);
+            this.labelTexto.TabIndex = 28;
+            this.labelTexto.Text = "Lista de Equipos";
+            // 
+            // equipoTableAdapter
+            // 
+            this.equipoTableAdapter.ClearBeforeFill = true;
+            // 
             // Equipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -336,8 +336,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

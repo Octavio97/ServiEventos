@@ -25,15 +25,15 @@ namespace Proyecto_Pagos_Eventos
 
         private void Servicios_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'equiposServDataSet.Equipo' Puede moverla o quitarla según sea necesario.
-            this.equipoTableAdapter.Fill(this.equiposServDataSet.Equipo);
             try
             {
+                // TODO: esta línea de código carga datos en la tabla 'equiposServDataSet.Equipo' Puede moverla o quitarla según sea necesario.
+                this.equipoTableAdapter.Fill(this.equiposServDataSet.Equipo);
+
                 cargarTabla();
 
                 dgvServicios.Columns["idCliente"].Visible = false;
                 dgvServicios.Columns["idUsuario"].Visible = false;
-                dgvServicios.AutoResizeColumns();
 
                 dgvEquiposA.Columns["check2"].ReadOnly = false;
                 dgvEquiposA.Columns["tipoA"].ReadOnly = true;
@@ -47,7 +47,6 @@ namespace Proyecto_Pagos_Eventos
                 dgvEquiposD.Columns["tipoD"].ReadOnly = true;
                 dgvEquiposD.Columns["descripcionD"].ReadOnly = true;
                 dgvEquiposD.Columns["montoD"].ReadOnly = true;
-                dgvEquiposD.AutoResizeColumns();
                 check.TrueValue = true;
                 check.FalseValue = false;
 
@@ -58,7 +57,7 @@ namespace Proyecto_Pagos_Eventos
                 
                 txtClientes.ValueMember = "iCliente";
                 txtClientes.DisplayMember = "nombre";
-                txtClientes.DataSource = lista;          
+                txtClientes.DataSource = lista;
             }
             catch (Exception ex)
             {
@@ -101,7 +100,7 @@ namespace Proyecto_Pagos_Eventos
                                     idS = Guid.NewGuid();
                                     idU = Conexion.usuario.idUsuario;
                                     idC = Guid.Parse(txtClientes.SelectedValue.ToString());
-
+                                    
                                     foreach (DataGridViewRow item in dgvEquiposD.Rows)
                                     {
                                         if (item.Cells[0].Value.Equals(true))
@@ -212,19 +211,32 @@ namespace Proyecto_Pagos_Eventos
 
         private void dgvEquiposD_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvEquiposD.CurrentCell == dgvEquiposD.CurrentRow.Cells[0])
+            try
             {
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposD.CurrentRow.Cells[0];
-                if (cell.Value.Equals(true))
+                foreach (DataGridViewRow item in dgvEquiposD.Rows)
                 {
-                    suma += Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
+                    if(item.Cells[0].Value == null)
+                        item.Cells[0].Value = false;
                 }
-                else if(!cell.Value.Equals(true))
+
+                if (dgvEquiposD.CurrentCell == dgvEquiposD.CurrentRow.Cells[0])
                 {
-                    suma -= Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
+                    DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposD.CurrentRow.Cells[0];
+                    if (cell.Value.Equals(true))
+                    {
+                        suma += Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
+                    }
+                    else if (!cell.Value.Equals(true))
+                    {
+                        suma -= Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
+                    }
                 }
+                txtMonto.Text = suma.ToString();
             }
-            txtMonto.Text = suma.ToString();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvEquiposA_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -319,6 +331,10 @@ namespace Proyecto_Pagos_Eventos
                         item.Cells[0].Value = true;
                         suma += Convert.ToInt32(item.Cells[5].Value);
                     }
+                    foreach (DataGridViewRow item in dgvEquiposD.Rows)
+                    {
+                        item.Cells[0].Value = false;
+                    }
                     dgvEquiposA.AutoResizeColumns();
                     txtMonto.Text = suma.ToString();
                 }
@@ -333,6 +349,8 @@ namespace Proyecto_Pagos_Eventos
         {
             dgvServicios.DataSource = CrudServicios.Consulta();
             dgvEquiposD.DataSource = CrudServicios.TraerEquipoD();
+            dgvServicios.AutoResizeColumns();
+            dgvEquiposD.AutoResizeColumns();
         }
         
         private void clearInterface()
@@ -344,7 +362,7 @@ namespace Proyecto_Pagos_Eventos
             radioBsiActivo.Checked = false;
             radioBsiPagado.Checked = false;
             radioBnoPagado.Checked = false;
-            dgvEquiposA.DataSource = null;
+            suma = 0;
             id = Guid.Empty;
             idS = Guid.Empty;
             idU = Guid.Empty;
@@ -361,19 +379,3 @@ namespace Proyecto_Pagos_Eventos
         }
     }
 }
-//primero entra aqui q se supone q no deberia 
-//if (dgvEquiposD.CurrentRow.Cells[0].Value.Equals(true))
-//{
-//    suma += Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
-//}
-//else if (txtMonto.Text == "0" || txtMonto.Text == "")
-//{
-//    return;
-//}
-//else if (!dgvEquiposD.CurrentRow.Cells[0].Value.Equals("true"))
-//{
-//    suma -= Convert.ToInt32(dgvEquiposD.CurrentRow.Cells[5].Value);
-//}
-//txtMonto.Text = suma.ToString();
-
-//dgvEquiposD.CommitEdit(DataGridViewDataErrorContexts.Commit);
