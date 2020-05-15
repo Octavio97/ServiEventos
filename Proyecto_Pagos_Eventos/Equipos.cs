@@ -15,7 +15,6 @@ namespace Proyecto_Pagos_Eventos
     public partial class Equipos : Form
     {
         private Boolean activo;
-        EventosBDEntities crud = Conexion.getInstance();
         private Guid id;
 
         public Equipos()
@@ -27,7 +26,6 @@ namespace Proyecto_Pagos_Eventos
         {
             // TODO: esta línea de código carga datos en la tabla 'equiposDataSet.Equipo' Puede moverla o quitarla según sea necesario.
             this.equipoTableAdapter.Fill(this.equiposDataSet.Equipo);
-            this.dgvEquipos.AutoResizeColumns();
             cargarTabla();
         }
 
@@ -36,6 +34,7 @@ namespace Proyecto_Pagos_Eventos
             textBoxDesc.Clear();
             radioBno.Checked = false;
             radioBsi.Checked = false;
+            id = Guid.Empty;
             txtMonto.Clear();
         }
 
@@ -43,6 +42,7 @@ namespace Proyecto_Pagos_Eventos
         {
             dgvEquipos.AutoGenerateColumns = false;
             dgvEquipos.DataSource = CrudEquipos.Consulta();
+            this.dgvEquipos.AutoResizeColumns();
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -58,7 +58,7 @@ namespace Proyecto_Pagos_Eventos
 
                 if (dr.Equals(DialogResult.Yes))
                 {
-                    if (textBoxDesc.Text != null && radioBno.Checked != false && txtMonto.Text != null || radioBsi.Checked != false)
+                    if (textBoxDesc.Text != "" && (radioBno.Checked != false || radioBsi.Checked != false) && txtMonto.Text != ""  && textBoxTipo.Text != "")
                     {
                         if (id != Guid.Empty)
                         {

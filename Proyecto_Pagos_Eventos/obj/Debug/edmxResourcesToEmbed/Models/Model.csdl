@@ -27,7 +27,6 @@
     <Property Name="fechaInicio" Type="DateTime" Precision="0" />
     <Property Name="fechaFinal" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Clientes" Relationship="Self.FK_Comprobantes_Clientes" FromRole="Comprobantes" ToRole="Clientes" />
-    <NavigationProperty Name="Servicio" Relationship="Self.FK_Comprobantes_Servicio" FromRole="Comprobantes" ToRole="Servicio" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Comprobantes_Usuarios" FromRole="Comprobantes" ToRole="Usuarios" />
   </EntityType>
   <EntityType Name="Equipo">
@@ -36,18 +35,18 @@
     </Key>
     <Property Name="idEquipo" Type="Guid" Nullable="false" />
     <Property Name="tipo" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="descripcion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="descripcion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
     <Property Name="activo" Type="Boolean" />
     <Property Name="monto" Type="Decimal" Precision="19" Scale="4" />
     <NavigationProperty Name="Servicio" Relationship="Self.FK_Servicio_Equipo" FromRole="Equipo" ToRole="Servicio" />
   </EntityType>
   <EntityType Name="Servicio">
     <Key>
-      <PropertyRef Name="idServicio" />
+      <PropertyRef Name="idG" />
     </Key>
-    <Property Name="idServicio" Type="Guid" Nullable="false" />
+    <Property Name="idG" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idServicio" Type="Guid" />
     <Property Name="idEquipo" Type="Guid" />
-    <NavigationProperty Name="Comprobantes" Relationship="Self.FK_Comprobantes_Servicio" FromRole="Servicio" ToRole="Comprobantes" />
     <NavigationProperty Name="Equipo" Relationship="Self.FK_Servicio_Equipo" FromRole="Servicio" ToRole="Equipo" />
   </EntityType>
   <EntityType Name="Usuarios">
@@ -69,18 +68,6 @@
       </Principal>
       <Dependent Role="Comprobantes">
         <PropertyRef Name="idCliente" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Comprobantes_Servicio">
-    <End Role="Servicio" Type="Self.Servicio" Multiplicity="0..1" />
-    <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Servicio">
-        <PropertyRef Name="idServicio" />
-      </Principal>
-      <Dependent Role="Comprobantes">
-        <PropertyRef Name="idServicio" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -116,10 +103,6 @@
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" />
     <AssociationSet Name="FK_Comprobantes_Clientes" Association="Self.FK_Comprobantes_Clientes">
       <End Role="Clientes" EntitySet="Clientes" />
-      <End Role="Comprobantes" EntitySet="Comprobantes" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Comprobantes_Servicio" Association="Self.FK_Comprobantes_Servicio">
-      <End Role="Servicio" EntitySet="Servicio" />
       <End Role="Comprobantes" EntitySet="Comprobantes" />
     </AssociationSet>
     <AssociationSet Name="FK_Comprobantes_Usuarios" Association="Self.FK_Comprobantes_Usuarios">

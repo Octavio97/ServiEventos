@@ -96,9 +96,9 @@ namespace Proyecto_Pagos_Eventos
             {
                 lblLoad.Visible = true;
 
-                Usuarios login = Conexion.getInstance().Usuarios.Where(w => w.usuario == txtUser.Text && w.contrasena == txtpass.Text && w.activo == true).FirstOrDefault();
+                bool login = Conexion.session(txtUser.Text, txtpass.Text);
 
-                if (login != null)
+                if (login)
                 {
                     lbMsgU.Visible = false;
                     lbMsgP.Visible = false;

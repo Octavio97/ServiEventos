@@ -4,14 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3d431e2ab6874230ac3f3ce74e9ab291" Name="Diagram1">
-        <EntityTypeShape EntityType="EventosBDModel.Clientes" Width="1.5" PointX="7.375" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventosBDModel.Comprobantes" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventosBDModel.Equipo" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventosBDModel.Servicio" Width="1.5" PointX="3" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="EventosBDModel.Usuarios" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+      <Diagram DiagramId="9a27e43585634d79ac2e90c337a290c9" Name="Diagram1">
+        <EntityTypeShape EntityType="EventosBDModel.Clientes" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventosBDModel.Comprobantes" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventosBDModel.Equipo" Width="1.5" PointX="7.375" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventosBDModel.Servicio" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="EventosBDModel.Usuarios" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
         <AssociationConnector Association="EventosBDModel.FK_Comprobantes_Clientes" ManuallyRouted="false" />
-        <AssociationConnector Association="EventosBDModel.FK_Comprobantes_Servicio" ManuallyRouted="false" />
         <AssociationConnector Association="EventosBDModel.FK_Comprobantes_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="EventosBDModel.FK_Servicio_Equipo" ManuallyRouted="false" />
       </Diagram>

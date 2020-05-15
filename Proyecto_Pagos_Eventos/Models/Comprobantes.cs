@@ -25,7 +25,6 @@ namespace Proyecto_Pagos_Eventos.Models
         public Nullable<System.DateTime> fechaFinal { get; set; }
     
         public virtual Clientes Clientes { get; set; }
-        public virtual Servicio Servicio { get; set; }
         public virtual Usuarios Usuarios { get; set; }
     }
 }

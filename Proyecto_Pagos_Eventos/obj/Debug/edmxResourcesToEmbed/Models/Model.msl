@@ -43,6 +43,7 @@
     <EntitySetMapping Name="Servicio">
       <EntityTypeMapping TypeName="EventosBDModel.Servicio">
         <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="idG" ColumnName="idG" />
           <ScalarProperty Name="idServicio" ColumnName="idServicio" />
           <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
         </MappingFragment>

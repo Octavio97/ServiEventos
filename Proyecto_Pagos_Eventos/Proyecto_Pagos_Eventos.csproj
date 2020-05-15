@@ -83,10 +83,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="EquipoServiciosDataSet.Designer.cs">
+    <Compile Include="EquiposServDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>EquipoServiciosDataSet.xsd</DependentUpon>
+      <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -177,10 +177,6 @@
     <EmbeddedResource Include="Servicios.resx">
       <DependentUpon>Servicios.cs</DependentUpon>
     </EmbeddedResource>
-    <EntityDeploy Include="Models\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
     <None Include="ClientesDataSet.xsc">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
     </None>
@@ -203,16 +199,20 @@
     <None Include="EquiposDataSet.xss">
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
     </None>
-    <None Include="EquipoServiciosDataSet.xsc">
-      <DependentUpon>EquipoServiciosDataSet.xsd</DependentUpon>
+    <EntityDeploy Include="Models\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="EquiposServDataSet.xsc">
+      <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
     </None>
-    <None Include="EquipoServiciosDataSet.xsd">
+    <None Include="EquiposServDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>EquipoServiciosDataSet.Designer.cs</LastGenOutput>
+      <LastGenOutput>EquiposServDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="EquipoServiciosDataSet.xss">
-      <DependentUpon>EquipoServiciosDataSet.xsd</DependentUpon>
+    <None Include="EquiposServDataSet.xss">
+      <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
     </None>
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
@@ -281,6 +281,7 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>

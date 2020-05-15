@@ -43,19 +43,19 @@
             this.labelTipo = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.dgvEquipos = new System.Windows.Forms.DataGridView();
+            this.labelTexto = new System.Windows.Forms.Label();
+            this.equiposDataSet = new Proyecto_Pagos_Eventos.EquiposDataSet();
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.idEquipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tipoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.descripcionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.activoDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.equiposDataSet = new Proyecto_Pagos_Eventos.EquiposDataSet();
-            this.labelTexto = new System.Windows.Forms.Label();
-            this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposDataSetTableAdapters.EquipoTableAdapter();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -85,7 +85,7 @@
             this.txtMonto.Mask = "99999";
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
-            this.txtMonto.TabIndex = 29;
+            this.txtMonto.TabIndex = 2;
             this.txtMonto.ValidatingType = typeof(int);
             // 
             // lblMonto
@@ -113,7 +113,7 @@
             this.btnClear.Location = new System.Drawing.Point(548, 203);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(182, 40);
-            this.btnClear.TabIndex = 27;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "Limpiar";
             this.btnClear.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClear.UseVisualStyleBackColor = false;
@@ -128,7 +128,7 @@
             this.radioBno.Location = new System.Drawing.Point(186, 208);
             this.radioBno.Name = "radioBno";
             this.radioBno.Size = new System.Drawing.Size(49, 25);
-            this.radioBno.TabIndex = 26;
+            this.radioBno.TabIndex = 5;
             this.radioBno.TabStop = true;
             this.radioBno.Text = "No";
             this.radioBno.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.radioBsi.Location = new System.Drawing.Point(128, 208);
             this.radioBsi.Name = "radioBsi";
             this.radioBsi.Size = new System.Drawing.Size(40, 25);
-            this.radioBsi.TabIndex = 25;
+            this.radioBsi.TabIndex = 4;
             this.radioBsi.TabStop = true;
             this.radioBsi.Text = "Si";
             this.radioBsi.UseVisualStyleBackColor = true;
@@ -162,6 +162,7 @@
             // 
             // textBoxTipo
             // 
+            this.textBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.textBoxTipo.FormattingEnabled = true;
             this.textBoxTipo.Items.AddRange(new object[] {
             "Salon",
@@ -172,7 +173,7 @@
             this.textBoxTipo.Location = new System.Drawing.Point(128, 28);
             this.textBoxTipo.Name = "textBoxTipo";
             this.textBoxTipo.Size = new System.Drawing.Size(272, 21);
-            this.textBoxTipo.TabIndex = 23;
+            this.textBoxTipo.TabIndex = 1;
             // 
             // btnGuardarEquipo
             // 
@@ -188,7 +189,7 @@
             this.btnGuardarEquipo.Location = new System.Drawing.Point(351, 203);
             this.btnGuardarEquipo.Name = "btnGuardarEquipo";
             this.btnGuardarEquipo.Size = new System.Drawing.Size(182, 40);
-            this.btnGuardarEquipo.TabIndex = 22;
+            this.btnGuardarEquipo.TabIndex = 6;
             this.btnGuardarEquipo.Text = "Guardar";
             this.btnGuardarEquipo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardarEquipo.UseVisualStyleBackColor = false;
@@ -201,7 +202,7 @@
             this.textBoxDesc.Multiline = true;
             this.textBoxDesc.Name = "textBoxDesc";
             this.textBoxDesc.Size = new System.Drawing.Size(602, 135);
-            this.textBoxDesc.TabIndex = 7;
+            this.textBoxDesc.TabIndex = 3;
             // 
             // labelDescripcion
             // 
@@ -234,6 +235,8 @@
             // 
             // dgvEquipos
             // 
+            this.dgvEquipos.AllowUserToAddRows = false;
+            this.dgvEquipos.AllowUserToDeleteRows = false;
             this.dgvEquipos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
@@ -250,10 +253,36 @@
             this.dgvEquipos.MultiSelect = false;
             this.dgvEquipos.Name = "dgvEquipos";
             this.dgvEquipos.ReadOnly = true;
+            this.dgvEquipos.RowHeadersVisible = false;
             this.dgvEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquipos.Size = new System.Drawing.Size(775, 252);
-            this.dgvEquipos.TabIndex = 27;
+            this.dgvEquipos.TabIndex = 8;
             this.dgvEquipos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquipos_CellContentClick);
+            // 
+            // labelTexto
+            // 
+            this.labelTexto.AutoSize = true;
+            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTexto.ForeColor = System.Drawing.Color.White;
+            this.labelTexto.Location = new System.Drawing.Point(40, 280);
+            this.labelTexto.Name = "labelTexto";
+            this.labelTexto.Size = new System.Drawing.Size(132, 21);
+            this.labelTexto.TabIndex = 28;
+            this.labelTexto.Text = "Lista de Equipos";
+            // 
+            // equiposDataSet
+            // 
+            this.equiposDataSet.DataSetName = "EquiposDataSet";
+            this.equiposDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataMember = "Equipo";
+            this.equipoBindingSource.DataSource = this.equiposDataSet;
+            // 
+            // equipoTableAdapter
+            // 
+            this.equipoTableAdapter.ClearBeforeFill = true;
             // 
             // idEquipoDataGridViewTextBoxColumn
             // 
@@ -290,31 +319,6 @@
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             // 
-            // equipoBindingSource
-            // 
-            this.equipoBindingSource.DataMember = "Equipo";
-            this.equipoBindingSource.DataSource = this.equiposDataSet;
-            // 
-            // equiposDataSet
-            // 
-            this.equiposDataSet.DataSetName = "EquiposDataSet";
-            this.equiposDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // labelTexto
-            // 
-            this.labelTexto.AutoSize = true;
-            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTexto.ForeColor = System.Drawing.Color.White;
-            this.labelTexto.Location = new System.Drawing.Point(40, 280);
-            this.labelTexto.Name = "labelTexto";
-            this.labelTexto.Size = new System.Drawing.Size(132, 21);
-            this.labelTexto.TabIndex = 28;
-            this.labelTexto.Text = "Lista de Equipos";
-            // 
-            // equipoTableAdapter
-            // 
-            this.equipoTableAdapter.ClearBeforeFill = true;
-            // 
             // Equipos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -332,8 +336,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquipos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.equiposDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

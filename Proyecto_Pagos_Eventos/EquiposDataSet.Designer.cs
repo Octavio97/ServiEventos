@@ -461,7 +461,7 @@ namespace Proyecto_Pagos_Eventos {
                 this.columnidEquipo.AllowDBNull = false;
                 this.columnidEquipo.Unique = true;
                 this.columntipo.MaxLength = 10;
-                this.columndescripcion.MaxLength = 50;
+                this.columndescripcion.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

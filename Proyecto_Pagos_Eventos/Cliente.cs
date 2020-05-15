@@ -32,6 +32,7 @@ namespace Proyecto_Pagos_Eventos
             textBoxEmail.Clear();
             radioBno.Checked = false;
             radioBsi.Checked = false;
+            id = Guid.Empty;
         }
 
         private void cargarTabla()
@@ -72,19 +73,17 @@ namespace Proyecto_Pagos_Eventos
 
                 if (dr.Equals(DialogResult.Yes))
                 {
-                    if (textBoxNom.Text != null &&
-                    textBoxApe.Text != null &&
-                    textBoxTel.Text != null &&
-                    textBoxCel.Text != null &&
-                    textBoxEmail.Text != null &&
-                    radioBno.Checked != false ||
-                    radioBsi.Checked != false)
+                    if (textBoxNom.Text != "" &&
+                    textBoxApe.Text != "" &&
+                    textBoxTel.Text != "" &&
+                    textBoxCel.Text != "" &&
+                    textBoxEmail.Text != "" &&
+                    (radioBno.Checked != false ||
+                    radioBsi.Checked != false))
                     {
-                        if (CrudClientes.VerificarClientes(textBoxTel.Text).Equals(false))
+                        if (!id.Equals(Guid.Empty))
                         {
-                            if (id != Guid.Empty)
-                            {
-                                Clientes client = new Clientes
+                            Clientes client = new Clientes
                                 {
                                     idCliente = id,
                                     nombre = textBoxNom.Text,
@@ -93,13 +92,15 @@ namespace Proyecto_Pagos_Eventos
                                     celular = textBoxCel.Text,
                                     correo = textBoxEmail.Text,
                                     activo = activo
-                                };
+                            };
 
-                                CrudClientes.Modificar(client);
-                                clearInterface();
-                                cargarTabla();
-                            }
-                            else
+                            CrudClientes.Modificar(client);
+                            clearInterface();
+                            cargarTabla();
+                        }
+                        else
+                        {
+                            if (CrudClientes.VerificarClientes(textBoxTel.Text).Equals(false))
                             {
                                 Clientes newClient = new Clientes
                                 {
@@ -114,13 +115,14 @@ namespace Proyecto_Pagos_Eventos
 
                                 CrudClientes.Alta(newClient);
                                 clearInterface();
-                                cargarTabla();
+                                cargarTabla();        
+                            }
+                            else
+                            {
+                                MessageBox.Show("El cliente " + textBoxNom.Text + " " + textBoxApe.Text + "ya existe si quiere modificar solo seleccionelo en las tablas de abajo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                        else
-                        {
-                            MessageBox.Show("El cliente " + textBoxNom.Text + " " + textBoxApe.Text + "ya existe si quiere modificar solo seleccionelo en las tablas de abajo", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+               
                     }
                     else
                     {

@@ -14,15 +14,10 @@ namespace Proyecto_Pagos_Eventos.Models
     
     public partial class Servicio
     {
-        public Servicio()
-        {
-            this.Comprobantes = new HashSet<Comprobantes>();
-        }
-    
-        public System.Guid idServicio { get; set; }
+        public int idG { get; set; }
+        public Nullable<System.Guid> idServicio { get; set; }
         public Nullable<System.Guid> idEquipo { get; set; }
     
-        public virtual ICollection<Comprobantes> Comprobantes { get; set; }
         public virtual Equipo Equipo { get; set; }
     }
 }
