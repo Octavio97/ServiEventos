@@ -62,6 +62,7 @@
     <EntitySetMapping Name="Documentos">
       <EntityTypeMapping TypeName="EventosBDModel.Documentos">
         <MappingFragment StoreEntitySet="Documentos">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
           <ScalarProperty Name="pdf" ColumnName="pdf" />
           <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
           <ScalarProperty Name="idPDF" ColumnName="idPDF" />

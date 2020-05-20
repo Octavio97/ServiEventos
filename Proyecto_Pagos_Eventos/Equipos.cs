@@ -127,7 +127,7 @@ namespace Proyecto_Pagos_Eventos
                 id = Guid.Parse(dgvEquipos.CurrentRow.Cells[0].Value.ToString());
                 textBoxTipo.SelectedItem = dgvEquipos.CurrentRow.Cells[1].Value.ToString();
                 textBoxDesc.Text = dgvEquipos.CurrentRow.Cells[2].Value.ToString();
-                txtMonto.Text = dgvEquipos.CurrentRow.Cells[4].Value.ToString().ToString();
+                txtMonto.Text = Convert.ToDecimal(dgvEquipos.CurrentRow.Cells[4].Value.ToString()).ToString();
 
                 if (dgvEquipos.CurrentRow.Cells[3].Value.Equals(true))
                 {

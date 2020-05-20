@@ -29,15 +29,35 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblActual = new System.Windows.Forms.Label();
             this.lblDisponible = new System.Windows.Forms.Label();
             this.dgvEquiposA = new System.Windows.Forms.DataGridView();
+            this.check2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idEquipoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoA = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.montoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.equiposServDataSet = new Proyecto_Pagos_Eventos.EquiposServDataSet();
             this.radioBnoActivo = new System.Windows.Forms.CheckBox();
             this.radioBsiActivo = new System.Windows.Forms.CheckBox();
             this.radioBnoPagado = new System.Windows.Forms.CheckBox();
             this.radioBsiPagado = new System.Windows.Forms.CheckBox();
             this.dgvEquiposD = new System.Windows.Forms.DataGridView();
+            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.idEquipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.descripcionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.activoD = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.montoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnClear = new System.Windows.Forms.Button();
             this.txtFf = new System.Windows.Forms.MaskedTextBox();
             this.lblFF = new System.Windows.Forms.Label();
@@ -55,29 +75,15 @@
             this.serviciosDataSet = new Proyecto_Pagos_Eventos.ServiciosDataSet();
             this.labelTexto = new System.Windows.Forms.Label();
             this.comprobantesTableAdapter = new Proyecto_Pagos_Eventos.ServiciosDataSetTableAdapters.ComprobantesTableAdapter();
-            this.equiposServDataSet = new Proyecto_Pagos_Eventos.EquiposServDataSet();
-            this.equipoBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.equipoTableAdapter = new Proyecto_Pagos_Eventos.EquiposServDataSetTableAdapters.EquipoTableAdapter();
-            this.check = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idEquipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activoD = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.montoD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.check2 = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.idEquipoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tipoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.descripcionA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.activoA = new System.Windows.Forms.DataGridViewCheckBoxColumn();
-            this.montoA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposServDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposD)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposServDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -137,6 +143,14 @@
             this.dgvEquiposA.AllowUserToAddRows = false;
             this.dgvEquiposA.AllowUserToDeleteRows = false;
             this.dgvEquiposA.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquiposA.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEquiposA.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquiposA.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check2,
@@ -149,11 +163,63 @@
             this.dgvEquiposA.Location = new System.Drawing.Point(390, 113);
             this.dgvEquiposA.Name = "dgvEquiposA";
             this.dgvEquiposA.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEquiposA.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEquiposA.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquiposA.Size = new System.Drawing.Size(364, 130);
             this.dgvEquiposA.TabIndex = 41;
             this.dgvEquiposA.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquiposA_CellContentClick);
             this.dgvEquiposA.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvEquiposA_CurrentCellDirtyStateChanged);
+            // 
+            // check2
+            // 
+            this.check2.HeaderText = "";
+            this.check2.Name = "check2";
+            this.check2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.check2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.check2.Width = 50;
+            // 
+            // idEquipoA
+            // 
+            this.idEquipoA.DataPropertyName = "idEquipo";
+            this.idEquipoA.HeaderText = "idEquipo";
+            this.idEquipoA.Name = "idEquipoA";
+            this.idEquipoA.Visible = false;
+            // 
+            // tipoA
+            // 
+            this.tipoA.DataPropertyName = "tipo";
+            this.tipoA.HeaderText = "tipo";
+            this.tipoA.Name = "tipoA";
+            // 
+            // descripcionA
+            // 
+            this.descripcionA.DataPropertyName = "descripcion";
+            this.descripcionA.HeaderText = "descripcion";
+            this.descripcionA.Name = "descripcionA";
+            // 
+            // activoA
+            // 
+            this.activoA.DataPropertyName = "activo";
+            this.activoA.HeaderText = "activo";
+            this.activoA.Name = "activoA";
+            this.activoA.Visible = false;
+            // 
+            // montoA
+            // 
+            this.montoA.DataPropertyName = "monto";
+            this.montoA.HeaderText = "monto";
+            this.montoA.Name = "montoA";
+            // 
+            // equipoBindingSource
+            // 
+            this.equipoBindingSource.DataMember = "Equipo";
+            this.equipoBindingSource.DataSource = this.equiposServDataSet;
+            // 
+            // equiposServDataSet
+            // 
+            this.equiposServDataSet.DataSetName = "EquiposServDataSet";
+            this.equiposServDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // radioBnoActivo
             // 
@@ -163,7 +229,7 @@
             this.radioBnoActivo.Location = new System.Drawing.Point(509, 50);
             this.radioBnoActivo.Name = "radioBnoActivo";
             this.radioBnoActivo.Size = new System.Drawing.Size(51, 25);
-            this.radioBnoActivo.TabIndex = 8;
+            this.radioBnoActivo.TabIndex = 6;
             this.radioBnoActivo.Text = "No";
             this.radioBnoActivo.UseVisualStyleBackColor = true;
             this.radioBnoActivo.CheckedChanged += new System.EventHandler(this.radioBnoActivo_CheckedChanged);
@@ -176,7 +242,7 @@
             this.radioBsiActivo.Location = new System.Drawing.Point(461, 50);
             this.radioBsiActivo.Name = "radioBsiActivo";
             this.radioBsiActivo.Size = new System.Drawing.Size(42, 25);
-            this.radioBsiActivo.TabIndex = 7;
+            this.radioBsiActivo.TabIndex = 5;
             this.radioBsiActivo.Text = "Si";
             this.radioBsiActivo.UseVisualStyleBackColor = true;
             this.radioBsiActivo.CheckedChanged += new System.EventHandler(this.radioBsiActivo_CheckedChanged);
@@ -189,7 +255,7 @@
             this.radioBnoPagado.Location = new System.Drawing.Point(689, 50);
             this.radioBnoPagado.Name = "radioBnoPagado";
             this.radioBnoPagado.Size = new System.Drawing.Size(51, 25);
-            this.radioBnoPagado.TabIndex = 6;
+            this.radioBnoPagado.TabIndex = 8;
             this.radioBnoPagado.Text = "No";
             this.radioBnoPagado.UseVisualStyleBackColor = true;
             this.radioBnoPagado.CheckedChanged += new System.EventHandler(this.radioBnoPagado_CheckedChanged);
@@ -202,7 +268,7 @@
             this.radioBsiPagado.Location = new System.Drawing.Point(641, 50);
             this.radioBsiPagado.Name = "radioBsiPagado";
             this.radioBsiPagado.Size = new System.Drawing.Size(42, 25);
-            this.radioBsiPagado.TabIndex = 5;
+            this.radioBsiPagado.TabIndex = 7;
             this.radioBsiPagado.Text = "Si";
             this.radioBsiPagado.UseVisualStyleBackColor = true;
             this.radioBsiPagado.CheckedChanged += new System.EventHandler(this.radioBsiPagado_CheckedChanged);
@@ -211,9 +277,15 @@
             // 
             this.dgvEquiposD.AllowUserToAddRows = false;
             this.dgvEquiposD.AllowUserToDeleteRows = false;
-            this.dgvEquiposD.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquiposD.AutoGenerateColumns = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquiposD.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEquiposD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquiposD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.check,
@@ -227,14 +299,58 @@
             this.dgvEquiposD.MultiSelect = false;
             this.dgvEquiposD.Name = "dgvEquiposD";
             this.dgvEquiposD.RowHeadersVisible = false;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEquiposD.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvEquiposD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquiposD.Size = new System.Drawing.Size(364, 130);
             this.dgvEquiposD.TabIndex = 11;
             this.dgvEquiposD.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEquiposD_CellContentClick);
             this.dgvEquiposD.CurrentCellDirtyStateChanged += new System.EventHandler(this.dgvEquiposD_CurrentCellDirtyStateChanged);
             // 
+            // check
+            // 
+            this.check.FalseValue = "";
+            this.check.HeaderText = "";
+            this.check.Name = "check";
+            this.check.ReadOnly = true;
+            this.check.TrueValue = "";
+            this.check.Width = 50;
+            // 
+            // idEquipoD
+            // 
+            this.idEquipoD.DataPropertyName = "idEquipo";
+            this.idEquipoD.HeaderText = "idEquipo";
+            this.idEquipoD.Name = "idEquipoD";
+            this.idEquipoD.Visible = false;
+            // 
+            // tipoD
+            // 
+            this.tipoD.DataPropertyName = "tipo";
+            this.tipoD.HeaderText = "tipo";
+            this.tipoD.Name = "tipoD";
+            // 
+            // descripcionD
+            // 
+            this.descripcionD.DataPropertyName = "descripcion";
+            this.descripcionD.HeaderText = "descripcion";
+            this.descripcionD.Name = "descripcionD";
+            // 
+            // activoD
+            // 
+            this.activoD.DataPropertyName = "activo";
+            this.activoD.HeaderText = "activo";
+            this.activoD.Name = "activoD";
+            this.activoD.Visible = false;
+            // 
+            // montoD
+            // 
+            this.montoD.DataPropertyName = "monto";
+            this.montoD.HeaderText = "monto";
+            this.montoD.Name = "montoD";
+            // 
             // btnClear
             // 
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnClear.BackColor = System.Drawing.Color.OrangeRed;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
@@ -348,6 +464,7 @@
             // 
             // btnGuardarServicio
             // 
+            this.btnGuardarServicio.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnGuardarServicio.BackColor = System.Drawing.Color.OrangeRed;
             this.btnGuardarServicio.FlatAppearance.BorderSize = 0;
             this.btnGuardarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
@@ -384,12 +501,22 @@
             this.dgvServicios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvServicios.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvServicios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvServicios.Location = new System.Drawing.Point(44, 350);
             this.dgvServicios.MultiSelect = false;
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersVisible = false;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicios.Size = new System.Drawing.Size(775, 213);
             this.dgvServicios.TabIndex = 12;
@@ -420,100 +547,9 @@
             // 
             this.comprobantesTableAdapter.ClearBeforeFill = true;
             // 
-            // equiposServDataSet
-            // 
-            this.equiposServDataSet.DataSetName = "EquiposServDataSet";
-            this.equiposServDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // equipoBindingSource
-            // 
-            this.equipoBindingSource.DataMember = "Equipo";
-            this.equipoBindingSource.DataSource = this.equiposServDataSet;
-            // 
             // equipoTableAdapter
             // 
             this.equipoTableAdapter.ClearBeforeFill = true;
-            // 
-            // check
-            // 
-            this.check.FalseValue = "";
-            this.check.HeaderText = "";
-            this.check.Name = "check";
-            this.check.ReadOnly = true;
-            this.check.TrueValue = "";
-            this.check.Width = 50;
-            // 
-            // idEquipoD
-            // 
-            this.idEquipoD.DataPropertyName = "idEquipo";
-            this.idEquipoD.HeaderText = "idEquipo";
-            this.idEquipoD.Name = "idEquipoD";
-            this.idEquipoD.Visible = false;
-            // 
-            // tipoD
-            // 
-            this.tipoD.DataPropertyName = "tipo";
-            this.tipoD.HeaderText = "tipo";
-            this.tipoD.Name = "tipoD";
-            // 
-            // descripcionD
-            // 
-            this.descripcionD.DataPropertyName = "descripcion";
-            this.descripcionD.HeaderText = "descripcion";
-            this.descripcionD.Name = "descripcionD";
-            // 
-            // activoD
-            // 
-            this.activoD.DataPropertyName = "activo";
-            this.activoD.HeaderText = "activo";
-            this.activoD.Name = "activoD";
-            this.activoD.Visible = false;
-            // 
-            // montoD
-            // 
-            this.montoD.DataPropertyName = "monto";
-            this.montoD.HeaderText = "monto";
-            this.montoD.Name = "montoD";
-            // 
-            // check2
-            // 
-            this.check2.HeaderText = "";
-            this.check2.Name = "check2";
-            this.check2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.check2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.check2.Width = 50;
-            // 
-            // idEquipoA
-            // 
-            this.idEquipoA.DataPropertyName = "idEquipo";
-            this.idEquipoA.HeaderText = "idEquipo";
-            this.idEquipoA.Name = "idEquipoA";
-            this.idEquipoA.Visible = false;
-            // 
-            // tipoA
-            // 
-            this.tipoA.DataPropertyName = "tipo";
-            this.tipoA.HeaderText = "tipo";
-            this.tipoA.Name = "tipoA";
-            // 
-            // descripcionA
-            // 
-            this.descripcionA.DataPropertyName = "descripcion";
-            this.descripcionA.HeaderText = "descripcion";
-            this.descripcionA.Name = "descripcionA";
-            // 
-            // activoA
-            // 
-            this.activoA.DataPropertyName = "activo";
-            this.activoA.HeaderText = "activo";
-            this.activoA.Name = "activoA";
-            this.activoA.Visible = false;
-            // 
-            // montoA
-            // 
-            this.montoA.DataPropertyName = "monto";
-            this.montoA.HeaderText = "monto";
-            this.montoA.Name = "montoA";
             // 
             // Servicios
             // 
@@ -531,12 +567,12 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.equiposServDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEquiposD)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvServicios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.comprobantesBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviciosDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equiposServDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.equipoBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

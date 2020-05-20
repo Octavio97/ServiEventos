@@ -37,6 +37,7 @@
           </Key>
           <Property Name="idPDF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="idComprobante" Type="uniqueidentifier" />
+          <Property Name="nombre" Type="varchar(max)" />
           <Property Name="pdf" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Equipo">
@@ -270,6 +271,7 @@
           <Property Name="idComprobante" Type="Guid" />
           <Property Name="pdf" Type="Binary" MaxLength="Max" FixedLength="false" />
           <NavigationProperty Name="Comprobantes" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Documentos" ToRole="Comprobantes" />
+          <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="FK_Documentos_Comprobantes">
           <End Type="EventosBDModel.Comprobantes" Role="Comprobantes" Multiplicity="0..1" />
@@ -350,6 +352,7 @@
           <EntitySetMapping Name="Documentos">
             <EntityTypeMapping TypeName="EventosBDModel.Documentos">
               <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="nombre" ColumnName="nombre" />
                 <ScalarProperty Name="pdf" ColumnName="pdf" />
                 <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
                 <ScalarProperty Name="idPDF" ColumnName="idPDF" />

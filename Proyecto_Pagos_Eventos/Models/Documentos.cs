@@ -17,6 +17,7 @@ namespace Proyecto_Pagos_Eventos.Models
         public int idPDF { get; set; }
         public Nullable<System.Guid> idComprobante { get; set; }
         public byte[] pdf { get; set; }
+        public string nombre { get; set; }
     
         public virtual Comprobantes Comprobantes { get; set; }
     }
