@@ -28,6 +28,7 @@
     <Property Name="fechaFinal" Type="DateTime" Precision="0" />
     <NavigationProperty Name="Clientes" Relationship="Self.FK_Comprobantes_Clientes" FromRole="Comprobantes" ToRole="Clientes" />
     <NavigationProperty Name="Usuarios" Relationship="Self.FK_Comprobantes_Usuarios" FromRole="Comprobantes" ToRole="Usuarios" />
+    <NavigationProperty Name="Documentos" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Comprobantes" ToRole="Documentos" />
   </EntityType>
   <EntityType Name="Equipo">
     <Key>
@@ -113,5 +114,31 @@
       <End Role="Equipo" EntitySet="Equipo" />
       <End Role="Servicio" EntitySet="Servicio" />
     </AssociationSet>
+    <EntitySet Name="Documentos" EntityType="EventosBDModel.Documentos" />
+    <AssociationSet Name="FK_Documentos_Comprobantes" Association="EventosBDModel.FK_Documentos_Comprobantes">
+      <End Role="Comprobantes" EntitySet="Comprobantes" />
+      <End Role="Documentos" EntitySet="Documentos" />
+    </AssociationSet>
   </EntityContainer>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="idPDF" />
+    </Key>
+    <Property Name="idPDF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="idComprobante" Type="Guid" />
+    <Property Name="pdf" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Comprobantes" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Documentos" ToRole="Comprobantes" />
+  </EntityType>
+  <Association Name="FK_Documentos_Comprobantes">
+    <End Type="EventosBDModel.Comprobantes" Role="Comprobantes" Multiplicity="0..1" />
+    <End Type="EventosBDModel.Documentos" Role="Documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comprobantes">
+        <PropertyRef Name="idComprobante" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idComprobante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
 </Schema>

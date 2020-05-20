@@ -10,6 +10,9 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Proyecto_Pagos_Eventos.Models;
 using Proyecto_Pagos_Eventos.Clases;
+using iTextSharp.text;
+using System.IO;
+using iTextSharp.text.pdf;
 
 namespace Proyecto_Pagos_Eventos
 {

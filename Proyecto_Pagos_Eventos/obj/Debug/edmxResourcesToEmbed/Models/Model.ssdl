@@ -26,6 +26,14 @@
     <Property Name="fechaInicio" Type="date" />
     <Property Name="fechaFinal" Type="date" />
   </EntityType>
+  <EntityType Name="Documentos">
+    <Key>
+      <PropertyRef Name="idPDF" />
+    </Key>
+    <Property Name="idPDF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="idComprobante" Type="uniqueidentifier" />
+    <Property Name="pdf" Type="varbinary(max)" />
+  </EntityType>
   <EntityType Name="Equipo">
     <Key>
       <PropertyRef Name="idEquipo" />
@@ -77,6 +85,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_Documentos_Comprobantes">
+    <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="0..1" />
+    <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Comprobantes">
+        <PropertyRef Name="idComprobante" />
+      </Principal>
+      <Dependent Role="Documentos">
+        <PropertyRef Name="idComprobante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Servicio_Equipo">
     <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
     <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
@@ -92,6 +112,7 @@
   <EntityContainer Name="EventosBDModelStoreContainer">
     <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Comprobantes" EntityType="Self.Comprobantes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -102,6 +123,10 @@
     <AssociationSet Name="FK_Comprobantes_Usuarios" Association="Self.FK_Comprobantes_Usuarios">
       <End Role="Usuarios" EntitySet="Usuarios" />
       <End Role="Comprobantes" EntitySet="Comprobantes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Documentos_Comprobantes" Association="Self.FK_Documentos_Comprobantes">
+      <End Role="Comprobantes" EntitySet="Comprobantes" />
+      <End Role="Documentos" EntitySet="Documentos" />
     </AssociationSet>
     <AssociationSet Name="FK_Servicio_Equipo" Association="Self.FK_Servicio_Equipo">
       <End Role="Equipo" EntitySet="Equipo" />

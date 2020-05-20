@@ -89,3 +89,7 @@ C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pag
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityFramework.dll
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EntityFramework.xml
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csproj.CopyComplete
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\BouncyCastle.Crypto.dll
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\iTextSharp.LGPLv2.Core.dll
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\BouncyCastle.Crypto.xml
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\iTextSharp.LGPLv2.Core.xml

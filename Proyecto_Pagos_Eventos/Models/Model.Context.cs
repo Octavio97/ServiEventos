@@ -30,5 +30,6 @@ namespace Proyecto_Pagos_Eventos.Models
         public DbSet<Equipo> Equipo { get; set; }
         public DbSet<Servicio> Servicio { get; set; }
         public DbSet<Usuarios> Usuarios { get; set; }
+        public DbSet<Documentos> Documentos { get; set; }
     }
 }

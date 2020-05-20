@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="EventosBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="EventosBDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clientes">
           <Key>
             <PropertyRef Name="idCliente" />
@@ -30,6 +30,14 @@
           <Property Name="activo" Type="bit" />
           <Property Name="fechaInicio" Type="date" />
           <Property Name="fechaFinal" Type="date" />
+        </EntityType>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="idPDF" />
+          </Key>
+          <Property Name="idPDF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="idComprobante" Type="uniqueidentifier" />
+          <Property Name="pdf" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Equipo">
           <Key>
@@ -82,6 +90,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Documentos_Comprobantes">
+          <End Role="Comprobantes" Type="Self.Comprobantes" Multiplicity="0..1" />
+          <End Role="Documentos" Type="Self.Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comprobantes">
+              <PropertyRef Name="idComprobante" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="idComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Servicio_Equipo">
           <End Role="Equipo" Type="Self.Equipo" Multiplicity="0..1" />
           <End Role="Servicio" Type="Self.Servicio" Multiplicity="*" />
@@ -97,6 +117,7 @@
         <EntityContainer Name="EventosBDModelStoreContainer">
           <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Comprobantes" EntityType="Self.Comprobantes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Documentos" EntityType="Self.Documentos" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Equipo" EntityType="Self.Equipo" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Servicio" EntityType="Self.Servicio" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
@@ -108,13 +129,16 @@
             <End Role="Usuarios" EntitySet="Usuarios" />
             <End Role="Comprobantes" EntitySet="Comprobantes" />
           </AssociationSet>
+          <AssociationSet Name="FK_Documentos_Comprobantes" Association="Self.FK_Documentos_Comprobantes">
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
           <AssociationSet Name="FK_Servicio_Equipo" Association="Self.FK_Servicio_Equipo">
             <End Role="Equipo" EntitySet="Equipo" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="EventosBDModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -146,6 +170,7 @@
           <Property Name="fechaFinal" Type="DateTime" Precision="0" />
           <NavigationProperty Name="Clientes" Relationship="Self.FK_Comprobantes_Clientes" FromRole="Comprobantes" ToRole="Clientes" />
           <NavigationProperty Name="Usuarios" Relationship="Self.FK_Comprobantes_Usuarios" FromRole="Comprobantes" ToRole="Usuarios" />
+          <NavigationProperty Name="Documentos" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Comprobantes" ToRole="Documentos" />
         </EntityType>
         <EntityType Name="Equipo">
           <Key>
@@ -231,7 +256,33 @@
             <End Role="Equipo" EntitySet="Equipo" />
             <End Role="Servicio" EntitySet="Servicio" />
           </AssociationSet>
+          <EntitySet Name="Documentos" EntityType="EventosBDModel.Documentos" />
+          <AssociationSet Name="FK_Documentos_Comprobantes" Association="EventosBDModel.FK_Documentos_Comprobantes">
+            <End Role="Comprobantes" EntitySet="Comprobantes" />
+            <End Role="Documentos" EntitySet="Documentos" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Documentos">
+          <Key>
+            <PropertyRef Name="idPDF" />
+          </Key>
+          <Property Name="idPDF" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="idComprobante" Type="Guid" />
+          <Property Name="pdf" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Comprobantes" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Documentos" ToRole="Comprobantes" />
+        </EntityType>
+        <Association Name="FK_Documentos_Comprobantes">
+          <End Type="EventosBDModel.Comprobantes" Role="Comprobantes" Multiplicity="0..1" />
+          <End Type="EventosBDModel.Documentos" Role="Documentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Comprobantes">
+              <PropertyRef Name="idComprobante" />
+            </Principal>
+            <Dependent Role="Documentos">
+              <PropertyRef Name="idComprobante" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -293,6 +344,15 @@
                 <ScalarProperty Name="usuario" ColumnName="usuario" />
                 <ScalarProperty Name="contrasena" ColumnName="contrasena" />
                 <ScalarProperty Name="activo" ColumnName="activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Documentos">
+            <EntityTypeMapping TypeName="EventosBDModel.Documentos">
+              <MappingFragment StoreEntitySet="Documentos">
+                <ScalarProperty Name="pdf" ColumnName="pdf" />
+                <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
+                <ScalarProperty Name="idPDF" ColumnName="idPDF" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

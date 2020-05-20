@@ -13,6 +13,8 @@
         <AssociationConnector Association="EventosBDModel.FK_Comprobantes_Clientes" ManuallyRouted="false" />
         <AssociationConnector Association="EventosBDModel.FK_Comprobantes_Usuarios" ManuallyRouted="false" />
         <AssociationConnector Association="EventosBDModel.FK_Servicio_Equipo" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="EventosBDModel.Documentos" Width="1.5" PointX="5.25" PointY="4.75" />
+        <AssociationConnector Association="EventosBDModel.FK_Documentos_Comprobantes" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

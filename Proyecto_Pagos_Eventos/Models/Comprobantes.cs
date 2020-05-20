@@ -14,6 +14,11 @@ namespace Proyecto_Pagos_Eventos.Models
     
     public partial class Comprobantes
     {
+        public Comprobantes()
+        {
+            this.Documentos = new HashSet<Documentos>();
+        }
+    
         public System.Guid idComprobante { get; set; }
         public Nullable<System.Guid> idCliente { get; set; }
         public Nullable<System.Guid> idUsuario { get; set; }
@@ -26,5 +31,6 @@ namespace Proyecto_Pagos_Eventos.Models
     
         public virtual Clientes Clientes { get; set; }
         public virtual Usuarios Usuarios { get; set; }
+        public virtual ICollection<Documentos> Documentos { get; set; }
     }
 }
