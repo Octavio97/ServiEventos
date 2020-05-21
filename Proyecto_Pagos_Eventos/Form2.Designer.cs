@@ -41,7 +41,6 @@
             this.labelHora = new System.Windows.Forms.Label();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnComprobante = new System.Windows.Forms.Button();
             this.btnEquipo = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
@@ -129,7 +128,6 @@
             this.PanelMenu.Controls.Add(this.labelHora);
             this.PanelMenu.Controls.Add(this.btnClientes);
             this.PanelMenu.Controls.Add(this.btnCerrarSesion);
-            this.PanelMenu.Controls.Add(this.btnComprobante);
             this.PanelMenu.Controls.Add(this.btnEquipo);
             this.PanelMenu.Controls.Add(this.btnServicio);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -217,24 +215,6 @@
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
             // 
-            // btnComprobante
-            // 
-            this.btnComprobante.FlatAppearance.BorderSize = 0;
-            this.btnComprobante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkMagenta;
-            this.btnComprobante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
-            this.btnComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprobante.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComprobante.ForeColor = System.Drawing.Color.White;
-            this.btnComprobante.Image = ((System.Drawing.Image)(resources.GetObject("btnComprobante.Image")));
-            this.btnComprobante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnComprobante.Location = new System.Drawing.Point(0, 176);
-            this.btnComprobante.Name = "btnComprobante";
-            this.btnComprobante.Size = new System.Drawing.Size(250, 40);
-            this.btnComprobante.TabIndex = 5;
-            this.btnComprobante.Text = "Comprobante";
-            this.btnComprobante.UseVisualStyleBackColor = true;
-            this.btnComprobante.Click += new System.EventHandler(this.btnComprobante_Click);
-            // 
             // btnEquipo
             // 
             this.btnEquipo.FlatAppearance.BorderSize = 0;
@@ -321,7 +301,6 @@
         private System.Windows.Forms.Button btnServicio;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Button btnComprobante;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMaximizar;
