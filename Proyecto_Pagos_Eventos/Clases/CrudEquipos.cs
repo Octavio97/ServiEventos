@@ -35,15 +35,23 @@ namespace Proyecto_Pagos_Eventos.Clases
         {
             try
             {
-                Guid f = array.idEquipo;
-                Equipo modificar = Conexion.getInstance().Equipo.Where(w => w.idEquipo == f).FirstOrDefault();
-                modificar.idEquipo = array.idEquipo;
-                modificar.tipo = array.tipo;
-                modificar.descripcion = array.descripcion;
-                modificar.activo = array.activo;
-                modificar.monto = array.monto;
-                Conexion.getInstance().SaveChanges();
-                MessageBox.Show("El equipo " + array.tipo + " fue modificado exitosamente", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (Conexion.getInstance().Servicio.Where(w => w.idEquipo == array.idEquipo).ToList().Any())
+                {
+                    MessageBox.Show("El equipo no puede deshabilitarse ya qui esta en uso de un cliente", "ERROR",MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    Guid f = array.idEquipo;
+                    Equipo modificar = Conexion.getInstance().Equipo.Where(w => w.idEquipo == f).FirstOrDefault();
+                    modificar.idEquipo = array.idEquipo;
+                    modificar.tipo = array.tipo;
+                    modificar.descripcion = array.descripcion;
+                    modificar.activo = array.activo;
+                    modificar.monto = array.monto;
+                    Conexion.getInstance().SaveChanges();
+                    MessageBox.Show("El equipo " + array.tipo + " fue modificado exitosamente", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
             }
             catch (Exception ex)
             {
