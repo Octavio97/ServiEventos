@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -34,6 +36,14 @@ namespace Proyecto_Pagos_Eventos
 
                 dgvServicios.Columns["idCliente"].Visible = false;
                 dgvServicios.Columns["idUsuario"].Visible = false;
+
+                DataGridViewButtonColumn bc = new DataGridViewButtonColumn();
+                bc.Name = "document";
+                bc.HeaderText = "PDF";
+                bc.Text = "PDF";
+                bc.UseColumnTextForButtonValue = true;
+                bc.Width = 50;
+                dgvServicios.Columns.Insert(13, bc);
 
                 dgvEquiposA.Columns["check2"].ReadOnly = false;
                 dgvEquiposA.Columns["tipoA"].ReadOnly = true;
@@ -294,17 +304,32 @@ namespace Proyecto_Pagos_Eventos
         {
             try
             {
+                var senderGrid = (DataGridView)sender;
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+                {
+                    var i = Guid.Parse(dgvServicios.CurrentRow.Cells[1].Value.ToString());
+                    var doc = Conexion.getInstance().Documentos.Where(w => w.idComprobante == i).FirstOrDefault();
+                    string path = AppDomain.CurrentDomain.BaseDirectory;
+                    string folder = path + "temp/";
+                    string fullFilePath = folder + doc.nombre;
+
+                    Directory.CreateDirectory(folder);
+                    File.WriteAllBytes(fullFilePath, doc.pdf);
+                    Process.Start(fullFilePath);
+                    return;
+                }
+
                 if (id.Equals(Guid.Empty))
                 {
-                    id = Guid.Parse(dgvServicios.CurrentRow.Cells[0].Value.ToString());
-                    idC = Guid.Parse(dgvServicios.CurrentRow.Cells[1].Value.ToString());
-                    idS = Guid.Parse(dgvServicios.CurrentRow.Cells[7].Value.ToString());
-                    idU = Guid.Parse(dgvServicios.CurrentRow.Cells[2].Value.ToString());
+                    id = Guid.Parse(dgvServicios.CurrentRow.Cells[1].Value.ToString());
+                    idC = Guid.Parse(dgvServicios.CurrentRow.Cells[2].Value.ToString());
+                    idS = Guid.Parse(dgvServicios.CurrentRow.Cells[8].Value.ToString());
+                    idU = Guid.Parse(dgvServicios.CurrentRow.Cells[3].Value.ToString());
                     txtClientes.SelectedValue = idC;
-                    txtFi.Text = dgvServicios.CurrentRow.Cells[8].Value.ToString();
-                    txtFf.Text = dgvServicios.CurrentRow.Cells[9].Value.ToString();
+                    txtFi.Text = dgvServicios.CurrentRow.Cells[9].Value.ToString();
+                    txtFf.Text = dgvServicios.CurrentRow.Cells[10].Value.ToString();
                     //activo
-                    if (Convert.ToBoolean(dgvServicios.CurrentRow.Cells[11].Value))
+                    if (Convert.ToBoolean(dgvServicios.CurrentRow.Cells[12].Value))
                     {
                         radioBsiActivo.Checked = true;
                         radioBnoActivo.Checked = false;
@@ -315,7 +340,7 @@ namespace Proyecto_Pagos_Eventos
                         radioBnoActivo.Checked = true;
                     }
                     // pagado
-                    if (Convert.ToBoolean(dgvServicios.CurrentRow.Cells[12].Value))
+                    if (Convert.ToBoolean(dgvServicios.CurrentRow.Cells[13].Value))
                     {
                         radioBsiPagado.Checked = true;
                         radioBnoPagado.Checked = false;

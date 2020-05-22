@@ -298,6 +298,7 @@
             this.Controls.Add(this.PanelMenu);
             this.Controls.Add(this.PanelTitulo);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WFormsMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Interfaz";

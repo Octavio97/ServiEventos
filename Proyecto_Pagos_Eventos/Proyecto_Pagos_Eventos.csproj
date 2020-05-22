@@ -303,6 +303,7 @@
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\Comprobante.html" />
+    <Content Include="Resources\iconfinder_PartyConfetti.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

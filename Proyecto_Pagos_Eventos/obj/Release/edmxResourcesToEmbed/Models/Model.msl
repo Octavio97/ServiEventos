@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EventosBDModelStoreContainer" CdmEntityContainer="EventosBDEntities">
+    <EntitySetMapping Name="Clientes">
+      <EntityTypeMapping TypeName="EventosBDModel.Clientes">
+        <MappingFragment StoreEntitySet="Clientes">
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="apellidos" ColumnName="apellidos" />
+          <ScalarProperty Name="telefono" ColumnName="telefono" />
+          <ScalarProperty Name="celular" ColumnName="celular" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Comprobantes">
+      <EntityTypeMapping TypeName="EventosBDModel.Comprobantes">
+        <MappingFragment StoreEntitySet="Comprobantes">
+          <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
+          <ScalarProperty Name="idCliente" ColumnName="idCliente" />
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+          <ScalarProperty Name="pagado" ColumnName="pagado" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaFinal" ColumnName="fechaFinal" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Equipo">
+      <EntityTypeMapping TypeName="EventosBDModel.Equipo">
+        <MappingFragment StoreEntitySet="Equipo">
+          <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+          <ScalarProperty Name="tipo" ColumnName="tipo" />
+          <ScalarProperty Name="descripcion" ColumnName="descripcion" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+          <ScalarProperty Name="monto" ColumnName="monto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Servicio">
+      <EntityTypeMapping TypeName="EventosBDModel.Servicio">
+        <MappingFragment StoreEntitySet="Servicio">
+          <ScalarProperty Name="idG" ColumnName="idG" />
+          <ScalarProperty Name="idServicio" ColumnName="idServicio" />
+          <ScalarProperty Name="idEquipo" ColumnName="idEquipo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuarios">
+      <EntityTypeMapping TypeName="EventosBDModel.Usuarios">
+        <MappingFragment StoreEntitySet="Usuarios">
+          <ScalarProperty Name="idUsuario" ColumnName="idUsuario" />
+          <ScalarProperty Name="usuario" ColumnName="usuario" />
+          <ScalarProperty Name="contrasena" ColumnName="contrasena" />
+          <ScalarProperty Name="activo" ColumnName="activo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Documentos">
+      <EntityTypeMapping TypeName="EventosBDModel.Documentos">
+        <MappingFragment StoreEntitySet="Documentos">
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="pdf" ColumnName="pdf" />
+          <ScalarProperty Name="idComprobante" ColumnName="idComprobante" />
+          <ScalarProperty Name="idPDF" ColumnName="idPDF" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

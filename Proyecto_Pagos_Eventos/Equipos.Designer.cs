@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.lblMonto = new System.Windows.Forms.Label();
@@ -82,7 +84,6 @@
             // txtMonto
             // 
             this.txtMonto.Location = new System.Drawing.Point(494, 29);
-            this.txtMonto.Mask = "9999.00";
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(100, 20);
             this.txtMonto.TabIndex = 2;
@@ -241,6 +242,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquipos.AutoGenerateColumns = false;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvEquipos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvEquipos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.idEquipoDataGridViewTextBoxColumn,
@@ -254,6 +263,8 @@
             this.dgvEquipos.Name = "dgvEquipos";
             this.dgvEquipos.ReadOnly = true;
             this.dgvEquipos.RowHeadersVisible = false;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEquipos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquipos.Size = new System.Drawing.Size(775, 252);
             this.dgvEquipos.TabIndex = 8;

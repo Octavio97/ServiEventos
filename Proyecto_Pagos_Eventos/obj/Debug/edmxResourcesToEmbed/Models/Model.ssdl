@@ -32,6 +32,7 @@
     </Key>
     <Property Name="idPDF" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="idComprobante" Type="uniqueidentifier" />
+    <Property Name="nombre" Type="varchar(max)" />
     <Property Name="pdf" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Equipo">

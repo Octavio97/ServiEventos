@@ -34,7 +34,7 @@ namespace Proyecto_Pagos_Eventos.Clases
                 {
                     equips.Add(item.e);
                 }
-                ComprobantePDF(Conexion.getInstance().Comprobantes.Where(w => w.idComprobante == array.idComprobante).ToList(), equips);
+                ComprobantePDF(Conexion.getInstance().Comprobantes.Where(w => w.idComprobante == array.idComprobante).FirstOrDefault(), equips);
                 MessageBox.Show("El Comprobante fue agregado exitosamente", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -138,7 +138,7 @@ namespace Proyecto_Pagos_Eventos.Clases
                     {
                         equips.Add(item.e);
                     }
-                    ComprobantePDF(Conexion.getInstance().Comprobantes.Where(w => w.idComprobante == array.idComprobante).ToList(), equips);
+                    ComprobantePDF(Conexion.getInstance().Comprobantes.Where(w => w.idComprobante == array.idComprobante).FirstOrDefault(), equips);
                     
                     MessageBox.Show("El Comrobante fue modificado exitosamente", "INFO", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
@@ -227,18 +227,27 @@ namespace Proyecto_Pagos_Eventos.Clases
             }
         }
 
-        public static void ComprobantePDF(List<Comprobantes> comp, List<Equipo> eqi)
+        public static void ComprobantePDF(Comprobantes comp, List<Equipo> eqi)
         {
             try
             {
                 string totals = "";
+                string path = AppDomain.CurrentDomain.BaseDirectory;
+                string folder = path + "\\temp\\";
+                string fullFilePath = folder + comp.idComprobante.ToString() + ".pdf";
+
+                if (!Directory.Exists(folder))
+                    Directory.CreateDirectory(folder);
+
+                if (File.Exists(fullFilePath))
+                    File.Delete(fullFilePath);
+
                 Document pdf = new Document(PageSize.Letter);// crear documento
                 pdf.SetMargins(40f, 40f, 40f, 40f);
-                MemoryStream ms = new MemoryStream();
-                //FileStream ms = new FileStream("C://Users/Octavio/Documents/test.pdf", FileMode.Create); // instancia para crear documento y ubicacion a guardar PENDIETE CON BD
-                PdfWriter witter = PdfWriter.GetInstance(pdf, ms);// generamos la carga del documento PENDIETE CON BD
-                pdf.AddAuthor("s65f1s65-s541f5s4-5s46d4f16s" + "C" + "sf54s65df4-s654f65s-65gnb1d5");// agregamos autoria al archivo
-                pdf.AddTitle("s65f1s65-s541f5s4-5s46d4f16s");// agregamos nombre al archivo
+                FileStream fs = new FileStream(folder + comp.idComprobante.ToString() + ".pdf", FileMode.Create); // instancia para crear documento y ubicacion a guardar
+                PdfWriter witter = PdfWriter.GetInstance(pdf, fs);// generamos la carga del documento PENDIETE CON BD
+                pdf.AddAuthor(comp.idUsuario.ToString());// agregamos autoria al archivo
+                pdf.AddTitle(comp.idComprobante.ToString());// agregamos nombre al archivo
                 pdf.Open();
 
                 BaseFont fuente1 = BaseFont.CreateFont(BaseFont.HELVETICA, BaseFont.CP1250, true); //creamos la fuente que se utilizara en el texto
@@ -276,58 +285,54 @@ namespace Proyecto_Pagos_Eventos.Clases
                     VerticalAlignment = Element.ALIGN_MIDDLE,
                     Rowspan = 3
                 });
-                foreach (var item in comp)
+                var consult = Conexion.getInstance().Documentos.Where(w => w.idComprobante == comp.idComprobante);
+                if (consult.Any())
                 {
-                    var consult = Conexion.getInstance().Documentos.Where(w => w.idComprobante == item.idComprobante).FirstOrDefault();
-                    if (!consult.Equals(true))
-                    {
-                        docExist = false;
-                    }
-                    else
-                    {
-                        docExist = true;
-                    }
-                    id = item.idComprobante;
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("# Comprobante: {0}", item.idComprobante.ToString()), cuerpo))
-                    {
-                        BorderWidthBottom = 0,
-                        BorderWidthRight = 0,
-                        Padding = 5f
-                    });
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("Celular: {0}", item.Clientes.celular), cuerpo))
-                    {
-                        BorderWidthBottom = 0,
-                        BorderWidthLeft = 0,
-                        Padding = 5f
-                    });
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("Nombre: {0}", item.Clientes.nombre + " " + item.Clientes.apellidos), cuerpo))
-                    {
-                        BorderWidthTop = 0,
-                        BorderWidthRight = 0,
-                        BorderWidthBottom = 0,
-                        Padding = 5f
-                    });
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("Fecha inicial: {0}", item.fechaInicio), cuerpo))
-                    {
-                        BorderWidthTop = 0,
-                        BorderWidthLeft = 0,
-                        BorderWidthBottom = 0,
-                        Padding = 5f
-                    });
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("Teléfono: {0}", item.Clientes.telefono), cuerpo))
-                    {
-                        BorderWidthTop = 0,
-                        BorderWidthRight = 0,
-                        Padding = 5f
-                    });
-                    cliente.AddCell(new PdfPCell(new Phrase(String.Format("Fecha final: {0}", item.fechaFinal), cuerpo))
-                    {
-                        BorderWidthTop = 0,
-                        BorderWidthLeft = 0,
-                        Padding = 5f
-                    });
-                    totals = item.monto.ToString();
+                    docExist = true;
                 }
+                else
+                {
+                    docExist = false;
+                }
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("# Comprobante: {0}", comp.idComprobante.ToString()), cuerpo))
+                {
+                    BorderWidthBottom = 0,
+                    BorderWidthRight = 0,
+                    Padding = 5f
+                });
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("Celular: {0}", comp.Clientes.celular), cuerpo))
+                {
+                    BorderWidthBottom = 0,
+                    BorderWidthLeft = 0,
+                    Padding = 5f
+                });
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("Nombre: {0}", comp.Clientes.nombre + " " + comp.Clientes.apellidos), cuerpo))
+                {
+                    BorderWidthTop = 0,
+                    BorderWidthRight = 0,
+                    BorderWidthBottom = 0,
+                    Padding = 5f
+                });
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("Fecha inicial: {0}", comp.fechaInicio), cuerpo))
+                {
+                    BorderWidthTop = 0,
+                    BorderWidthLeft = 0,
+                    BorderWidthBottom = 0,
+                    Padding = 5f
+                });
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("Teléfono: {0}", comp.Clientes.telefono), cuerpo))
+                {
+                    BorderWidthTop = 0,
+                    BorderWidthRight = 0,
+                    Padding = 5f
+                });
+                cliente.AddCell(new PdfPCell(new Phrase(String.Format("Fecha final: {0}", comp.fechaFinal), cuerpo))
+                {
+                    BorderWidthTop = 0,
+                    BorderWidthLeft = 0,
+                    Padding = 5f
+                });
+                totals = comp.monto.ToString();
                 pdf.Add(cliente);
                 pdf.Add(new Phrase(" "));
 
@@ -356,21 +361,27 @@ namespace Proyecto_Pagos_Eventos.Clases
 
                 pdf.Add(new Phrase("Total: $" + totals, total));
 
-                ms.Seek(0, SeekOrigin.Begin);
                 witter.Close();
                 pdf.Close();
+                fs.Dispose();
 
                 byte[] file = null;
-                file = ms.ToArray();
+                Stream stream = new FileStream(fullFilePath, FileMode.Open, FileAccess.ReadWrite);
+
+                using (MemoryStream mem = new MemoryStream())
+                {
+                    stream.CopyTo(mem);
+                    file = mem.ToArray();
+                }
 
                 if (docExist)
                 {
-                    var documento = Conexion.getInstance().Documentos.Where(w => w.idComprobante == id).FirstOrDefault();
+                    var documento = Conexion.getInstance().Documentos.Where(w => w.idComprobante == comp.idComprobante).FirstOrDefault();
                     documento.pdf = file;
                 }
                 else
                 {
-                    Conexion.getInstance().Documentos.Add(new Documentos { idComprobante = id, pdf = file});
+                    Conexion.getInstance().Documentos.Add(new Documentos { idComprobante = id, pdf = file, nombre = comp.idComprobante.ToString() + ".pdf"});
                 }
                 Conexion.getInstance().SaveChanges();
             }

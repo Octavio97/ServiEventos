@@ -128,6 +128,7 @@
     <Property Name="idComprobante" Type="Guid" />
     <Property Name="pdf" Type="Binary" MaxLength="Max" FixedLength="false" />
     <NavigationProperty Name="Comprobantes" Relationship="EventosBDModel.FK_Documentos_Comprobantes" FromRole="Documentos" ToRole="Comprobantes" />
+    <Property Name="nombre" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <Association Name="FK_Documentos_Comprobantes">
     <End Type="EventosBDModel.Comprobantes" Role="Comprobantes" Multiplicity="0..1" />
