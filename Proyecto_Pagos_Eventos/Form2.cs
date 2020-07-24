@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.IO;
 
 namespace Proyecto_Pagos_Eventos
 {
@@ -25,24 +26,47 @@ namespace Proyecto_Pagos_Eventos
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("¿Desea cerrar la Aplicación?", "Cerrar Aplicacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
-                Application.Exit();
+                if (MessageBox.Show("¿Desea cerrar la Aplicación?", "Cerrar Aplicacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    DirectoryInfo di = new DirectoryInfo(AppDomain.CurrentDomain.BaseDirectory + "\\temp\\");
+                    if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\temp\\"))
+                    {
+                        foreach (var item in di.GetFiles())
+                        {
+                            item.Delete();
+                        }
+                        Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\temp\\");
+                    }
+                    Application.Exit();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
         int lx, ly;
 
         private void btnMaximizar_Click(object sender, EventArgs e)
         {
-            if (screen.Equals(true))
+            try
             {
-                this.WindowState = FormWindowState.Maximized;
-                screen = false;
+                if (screen.Equals(true))
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    screen = false;
+                }
+                else
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    screen = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                this.WindowState = FormWindowState.Normal;
-                screen = true;
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -67,10 +91,6 @@ namespace Proyecto_Pagos_Eventos
             AbrirFormEnPanel(new Servicios());
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
@@ -78,30 +98,15 @@ namespace Proyecto_Pagos_Eventos
             labelFecha.Text = DateTime.Now.ToLongDateString();
         }
 
-        private void labelFecha_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
             AbrirFormEnPanel(new Inicio());
-        }
-
-        private void panel_Inicio_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void panelTitulo_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void PanelTitulo_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
@@ -114,11 +119,6 @@ namespace Proyecto_Pagos_Eventos
                 Login.Show();
             }
            
-        }
-
-        private void btnComprobante_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnEquipo_Click(object sender, EventArgs e)

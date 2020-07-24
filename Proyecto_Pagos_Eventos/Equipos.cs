@@ -24,25 +24,48 @@ namespace Proyecto_Pagos_Eventos
 
         private void Equipo_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'equiposDataSet.Equipo' Puede moverla o quitarla según sea necesario.
-            this.equipoTableAdapter.Fill(this.equiposDataSet.Equipo);
-            cargarTabla();
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'equiposDataSet.Equipo' Puede moverla o quitarla según sea necesario.
+                this.equipoTableAdapter.Fill(this.equiposDataSet.Equipo);
+                cargarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void clearInterface()
         {
-            textBoxDesc.Clear();
-            radioBno.Checked = false;
-            radioBsi.Checked = false;
-            id = Guid.Empty;
-            txtMonto.Clear();
+            try
+            {
+                textBoxDesc.Clear();
+                radioBno.Checked = false;
+                radioBsi.Checked = false;
+                id = Guid.Empty;
+                txtMonto.Clear();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void cargarTabla()
         {
-            dgvEquipos.AutoGenerateColumns = false;
-            dgvEquipos.DataSource = CrudEquipos.Consulta();
-            this.dgvEquipos.AutoResizeColumns();
+            try
+            {
+                dgvEquipos.AutoGenerateColumns = false;
+                dgvEquipos.DataSource = CrudEquipos.Consulta();
+                this.dgvEquipos.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnClear_Click(object sender, EventArgs e)

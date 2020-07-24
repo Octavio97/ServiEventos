@@ -71,7 +71,6 @@ C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyect
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Cliente.resources
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csprojAssemblyReference.cache
 C:\Users\Tavo\source\repos\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Equipos.resources
-C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csprojAssemblyReference.cache
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Cliente.resources
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.Equipos.resources
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.WFormsMenu.resources
@@ -93,3 +92,20 @@ C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pag
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\iTextSharp.LGPLv2.Core.dll
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\BouncyCastle.Crypto.xml
 C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\iTextSharp.LGPLv2.Core.xml
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ClientesDataSet.Designer.cs
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposDataSet.Designer.cs
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposServDataSet.Designer.cs
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ServiciosDataSet.Designer.cs
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ClientesDataSet.xsc
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ClientesDataSet.xsd
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ClientesDataSet.xss
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposDataSet.xsc
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposDataSet.xsd
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposDataSet.xss
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposServDataSet.xsc
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposServDataSet.xsd
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\EquiposServDataSet.xss
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ServiciosDataSet.xsc
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ServiciosDataSet.xsd
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\bin\Debug\ServiciosDataSet.xss
+C:\Users\Octavio\Documents\Visual Studio 2017\Proyects\ServiEventos\Proyecto_Pagos_Eventos\obj\Debug\Proyecto_Pagos_Eventos.csprojAssemblyReference.cache

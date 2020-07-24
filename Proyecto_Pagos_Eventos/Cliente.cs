@@ -25,20 +25,34 @@ namespace Proyecto_Pagos_Eventos
 
         private void clearInterface()
         {
-            textBoxNom.Clear();
-            textBoxApe.Clear();
-            textBoxTel.Clear();
-            textBoxCel.Clear();
-            textBoxEmail.Clear();
-            radioBno.Checked = false;
-            radioBsi.Checked = false;
-            id = Guid.Empty;
+            try
+            {
+                textBoxNom.Clear();
+                textBoxApe.Clear();
+                textBoxTel.Clear();
+                textBoxCel.Clear();
+                textBoxEmail.Clear();
+                radioBno.Checked = false;
+                radioBsi.Checked = false;
+                id = Guid.Empty;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void cargarTabla()
         {
-            dgvClientes.AutoGenerateColumns = false;
-            dgvClientes.DataSource = CrudClientes.Consulta();
+            try
+            {
+                dgvClientes.AutoGenerateColumns = false;
+                dgvClientes.DataSource = CrudClientes.Consulta();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void radioBsi_CheckedChanged(object sender, EventArgs e)
@@ -59,10 +73,17 @@ namespace Proyecto_Pagos_Eventos
 
         private void Clientes_Load(object sender, EventArgs e)
         {
-            // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Clientes' Puede moverla o quitarla según sea necesario.
-            this.clientesTableAdapter.Fill(this.clientesDataSet.Clientes);
-            this.dgvClientes.AutoResizeColumns();
-            cargarTabla();
+            try
+            {
+                // TODO: esta línea de código carga datos en la tabla 'clientesDataSet.Clientes' Puede moverla o quitarla según sea necesario.
+                this.clientesTableAdapter.Fill(this.clientesDataSet.Clientes);
+                this.dgvClientes.AutoResizeColumns();
+                cargarTabla();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -138,21 +159,30 @@ namespace Proyecto_Pagos_Eventos
 
         private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            clearInterface();
-            id = Guid.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
-            textBoxNom.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
-            textBoxApe.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
-            textBoxTel.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
-            textBoxCel.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
-            textBoxEmail.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
-            if (dgvClientes.CurrentRow.Cells[6].Value.Equals(true))
+            try
             {
-                radioBsi.Checked = true;
+                clearInterface();
+                id = Guid.Parse(dgvClientes.CurrentRow.Cells[0].Value.ToString());
+                textBoxNom.Text = dgvClientes.CurrentRow.Cells[1].Value.ToString();
+                textBoxApe.Text = dgvClientes.CurrentRow.Cells[2].Value.ToString();
+                textBoxTel.Text = dgvClientes.CurrentRow.Cells[3].Value.ToString();
+                textBoxCel.Text = dgvClientes.CurrentRow.Cells[4].Value.ToString();
+                textBoxEmail.Text = dgvClientes.CurrentRow.Cells[5].Value.ToString();
+                if (dgvClientes.CurrentRow.Cells[6].Value.Equals(true))
+                {
+                    radioBsi.Checked = true;
+                }
+                else
+                {
+                    radioBno.Checked = true;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                radioBno.Checked = true;
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+
+            
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -164,7 +194,7 @@ namespace Proyecto_Pagos_Eventos
             }
             catch (Exception ex)
             {
-
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

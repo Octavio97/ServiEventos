@@ -99,7 +99,7 @@
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.delete;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -137,7 +137,7 @@
             this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnGuardar.ForeColor = System.Drawing.Color.White;
             this.btnGuardar.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.save;
             this.btnGuardar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -154,11 +154,11 @@
             // 
             this.radioBno.AutoSize = true;
             this.radioBno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioBno.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBno.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBno.ForeColor = System.Drawing.Color.White;
             this.radioBno.Location = new System.Drawing.Point(621, 20);
             this.radioBno.Name = "radioBno";
-            this.radioBno.Size = new System.Drawing.Size(49, 25);
+            this.radioBno.Size = new System.Drawing.Size(55, 29);
             this.radioBno.TabIndex = 6;
             this.radioBno.TabStop = true;
             this.radioBno.Text = "No";
@@ -169,11 +169,11 @@
             // 
             this.radioBsi.AutoSize = true;
             this.radioBsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioBsi.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBsi.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBsi.ForeColor = System.Drawing.Color.White;
             this.radioBsi.Location = new System.Drawing.Point(563, 20);
             this.radioBsi.Name = "radioBsi";
-            this.radioBsi.Size = new System.Drawing.Size(40, 25);
+            this.radioBsi.Size = new System.Drawing.Size(44, 29);
             this.radioBsi.TabIndex = 5;
             this.radioBsi.TabStop = true;
             this.radioBsi.Text = "Si";
@@ -183,11 +183,11 @@
             // labelActivo
             // 
             this.labelActivo.AutoSize = true;
-            this.labelActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActivo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelActivo.ForeColor = System.Drawing.Color.White;
             this.labelActivo.Location = new System.Drawing.Point(487, 20);
             this.labelActivo.Name = "labelActivo";
-            this.labelActivo.Size = new System.Drawing.Size(61, 21);
+            this.labelActivo.Size = new System.Drawing.Size(70, 25);
             this.labelActivo.TabIndex = 0;
             this.labelActivo.Text = "Activo:";
             // 
@@ -221,55 +221,55 @@
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
-            this.labelEmail.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelEmail.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelEmail.ForeColor = System.Drawing.Color.White;
-            this.labelEmail.Location = new System.Drawing.Point(32, 215);
+            this.labelEmail.Location = new System.Drawing.Point(32, 218);
             this.labelEmail.Name = "labelEmail";
-            this.labelEmail.Size = new System.Drawing.Size(48, 21);
+            this.labelEmail.Size = new System.Drawing.Size(59, 25);
             this.labelEmail.TabIndex = 0;
             this.labelEmail.Text = "Email";
             // 
             // labelCel
             // 
             this.labelCel.AutoSize = true;
-            this.labelCel.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCel.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelCel.ForeColor = System.Drawing.Color.White;
-            this.labelCel.Location = new System.Drawing.Point(32, 165);
+            this.labelCel.Location = new System.Drawing.Point(32, 169);
             this.labelCel.Name = "labelCel";
-            this.labelCel.Size = new System.Drawing.Size(60, 21);
+            this.labelCel.Size = new System.Drawing.Size(72, 25);
             this.labelCel.TabIndex = 0;
             this.labelCel.Text = "Celular";
             // 
             // labelTel
             // 
             this.labelTel.AutoSize = true;
-            this.labelTel.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTel.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelTel.ForeColor = System.Drawing.Color.White;
-            this.labelTel.Location = new System.Drawing.Point(32, 115);
+            this.labelTel.Location = new System.Drawing.Point(32, 119);
             this.labelTel.Name = "labelTel";
-            this.labelTel.Size = new System.Drawing.Size(75, 21);
+            this.labelTel.Size = new System.Drawing.Size(86, 25);
             this.labelTel.TabIndex = 0;
-            this.labelTel.Text = "Telefono";
+            this.labelTel.Text = "Teléfono";
             // 
             // labelApellidos
             // 
             this.labelApellidos.AutoSize = true;
-            this.labelApellidos.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelApellidos.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelApellidos.ForeColor = System.Drawing.Color.White;
-            this.labelApellidos.Location = new System.Drawing.Point(32, 67);
+            this.labelApellidos.Location = new System.Drawing.Point(32, 70);
             this.labelApellidos.Name = "labelApellidos";
-            this.labelApellidos.Size = new System.Drawing.Size(79, 21);
+            this.labelApellidos.Size = new System.Drawing.Size(91, 25);
             this.labelApellidos.TabIndex = 0;
             this.labelApellidos.Text = "Apellidos";
             // 
             // labelNom
             // 
             this.labelNom.AutoSize = true;
-            this.labelNom.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNom.Font = new System.Drawing.Font("Malgun Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNom.ForeColor = System.Drawing.Color.White;
-            this.labelNom.Location = new System.Drawing.Point(32, 24);
+            this.labelNom.Location = new System.Drawing.Point(32, 23);
             this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(71, 21);
+            this.labelNom.Size = new System.Drawing.Size(83, 25);
             this.labelNom.TabIndex = 0;
             this.labelNom.Text = "Nombre";
             // 
@@ -283,11 +283,11 @@
             // labelTexto
             // 
             this.labelTexto.AutoSize = true;
-            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelTexto.ForeColor = System.Drawing.Color.White;
             this.labelTexto.Location = new System.Drawing.Point(40, 287);
             this.labelTexto.Name = "labelTexto";
-            this.labelTexto.Size = new System.Drawing.Size(132, 21);
+            this.labelTexto.Size = new System.Drawing.Size(154, 25);
             this.labelTexto.TabIndex = 0;
             this.labelTexto.Text = "Lista de Clientes";
             // 
@@ -301,7 +301,7 @@
             this.dgvClientes.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -330,7 +330,7 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvClientes.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvClientes.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvClientes.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvClientes.Size = new System.Drawing.Size(775, 232);

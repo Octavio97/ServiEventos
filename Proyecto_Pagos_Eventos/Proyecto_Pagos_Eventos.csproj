@@ -77,6 +77,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Equipos.cs">
       <SubType>Form</SubType>
@@ -88,11 +89,13 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="EquiposServDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Form2.cs">
       <SubType>Form</SubType>
@@ -157,6 +160,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <EmbeddedResource Include="Cliente.resx">
       <DependentUpon>Cliente.cs</DependentUpon>
@@ -188,25 +192,31 @@
     </EmbeddedResource>
     <None Include="ClientesDataSet.xsc">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ClientesDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ClientesDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ClientesDataSet.xss">
       <DependentUpon>ClientesDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EquiposDataSet.xsc">
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EquiposDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EquiposDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EquiposDataSet.xss">
       <DependentUpon>EquiposDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <EntityDeploy Include="Models\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -214,14 +224,17 @@
     </EntityDeploy>
     <None Include="EquiposServDataSet.xsc">
       <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EquiposServDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>EquiposServDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="EquiposServDataSet.xss">
       <DependentUpon>EquiposServDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
@@ -238,14 +251,17 @@
     </Compile>
     <None Include="ServiciosDataSet.xsc">
       <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ServiciosDataSet.xsd">
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>ServiciosDataSet.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="ServiciosDataSet.xss">
       <DependentUpon>ServiciosDataSet.xsd</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup>

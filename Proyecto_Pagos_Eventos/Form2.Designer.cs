@@ -41,7 +41,6 @@
             this.labelHora = new System.Windows.Forms.Label();
             this.btnClientes = new System.Windows.Forms.Button();
             this.btnCerrarSesion = new System.Windows.Forms.Button();
-            this.btnComprobante = new System.Windows.Forms.Button();
             this.btnEquipo = new System.Windows.Forms.Button();
             this.btnServicio = new System.Windows.Forms.Button();
             this.HoraFecha = new System.Windows.Forms.Timer(this.components);
@@ -66,7 +65,6 @@
             this.PanelTitulo.Name = "PanelTitulo";
             this.PanelTitulo.Size = new System.Drawing.Size(1100, 25);
             this.PanelTitulo.TabIndex = 0;
-            this.PanelTitulo.Paint += new System.Windows.Forms.PaintEventHandler(this.PanelTitulo_Paint);
             this.PanelTitulo.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panelTitulo_MouseDown);
             // 
             // btnMinimizar
@@ -129,7 +127,6 @@
             this.PanelMenu.Controls.Add(this.labelHora);
             this.PanelMenu.Controls.Add(this.btnClientes);
             this.PanelMenu.Controls.Add(this.btnCerrarSesion);
-            this.PanelMenu.Controls.Add(this.btnComprobante);
             this.PanelMenu.Controls.Add(this.btnEquipo);
             this.PanelMenu.Controls.Add(this.btnServicio);
             this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Left;
@@ -166,7 +163,6 @@
             this.labelFecha.Size = new System.Drawing.Size(46, 17);
             this.labelFecha.TabIndex = 23;
             this.labelFecha.Text = "label1";
-            this.labelFecha.Click += new System.EventHandler(this.labelFecha_Click);
             // 
             // labelHora
             // 
@@ -178,7 +174,6 @@
             this.labelHora.Size = new System.Drawing.Size(86, 31);
             this.labelHora.TabIndex = 2;
             this.labelHora.Text = "label1";
-            this.labelHora.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnClientes
             // 
@@ -216,24 +211,6 @@
             this.btnCerrarSesion.Text = "Cerrar Sesión";
             this.btnCerrarSesion.UseVisualStyleBackColor = false;
             this.btnCerrarSesion.Click += new System.EventHandler(this.btnCerrarSesion_Click);
-            // 
-            // btnComprobante
-            // 
-            this.btnComprobante.FlatAppearance.BorderSize = 0;
-            this.btnComprobante.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DarkMagenta;
-            this.btnComprobante.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Magenta;
-            this.btnComprobante.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnComprobante.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnComprobante.ForeColor = System.Drawing.Color.White;
-            this.btnComprobante.Image = ((System.Drawing.Image)(resources.GetObject("btnComprobante.Image")));
-            this.btnComprobante.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnComprobante.Location = new System.Drawing.Point(0, 176);
-            this.btnComprobante.Name = "btnComprobante";
-            this.btnComprobante.Size = new System.Drawing.Size(250, 40);
-            this.btnComprobante.TabIndex = 5;
-            this.btnComprobante.Text = "Comprobante";
-            this.btnComprobante.UseVisualStyleBackColor = true;
-            this.btnComprobante.Click += new System.EventHandler(this.btnComprobante_Click);
             // 
             // btnEquipo
             // 
@@ -287,7 +264,6 @@
             this.panel_Contenedor.Name = "panel_Contenedor";
             this.panel_Contenedor.Size = new System.Drawing.Size(853, 575);
             this.panel_Contenedor.TabIndex = 2;
-            this.panel_Contenedor.Paint += new System.Windows.Forms.PaintEventHandler(this.panel_Inicio_Paint);
             // 
             // WFormsMenu
             // 
@@ -322,7 +298,6 @@
         private System.Windows.Forms.Button btnServicio;
         private System.Windows.Forms.Button btnClientes;
         private System.Windows.Forms.Button btnCerrarSesion;
-        private System.Windows.Forms.Button btnComprobante;
         private System.Windows.Forms.PictureBox btnMinimizar;
         private System.Windows.Forms.PictureBox btnCerrar;
         private System.Windows.Forms.PictureBox btnMaximizar;

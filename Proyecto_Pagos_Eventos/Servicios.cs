@@ -251,34 +251,55 @@ namespace Proyecto_Pagos_Eventos
 
         private void dgvEquiposA_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvEquiposA.CurrentCell == dgvEquiposA.CurrentRow.Cells[0])
+            try
             {
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposA.CurrentRow.Cells[0];
-                if (cell.Value.Equals(true))
+                if (dgvEquiposA.CurrentCell == dgvEquiposA.CurrentRow.Cells[0])
                 {
-                    suma += Convert.ToInt32(dgvEquiposA.CurrentRow.Cells[5].Value);
+                    DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposA.CurrentRow.Cells[0];
+                    if (cell.Value.Equals(true))
+                    {
+                        suma += Convert.ToInt32(dgvEquiposA.CurrentRow.Cells[5].Value);
+                    }
+                    else if (!cell.Value.Equals(true))
+                    {
+                        suma -= Convert.ToInt32(dgvEquiposA.CurrentRow.Cells[5].Value);
+                    }
                 }
-                else if (!cell.Value.Equals(true))
-                {
-                    suma -= Convert.ToInt32(dgvEquiposA.CurrentRow.Cells[5].Value);
-                }
+                txtMonto.Text = suma.ToString();
             }
-            txtMonto.Text = suma.ToString();
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private void dgvEquiposD_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (dgvEquiposD.IsCurrentCellDirty)
+            try
             {
-                dgvEquiposD.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                if (dgvEquiposD.IsCurrentCellDirty)
+                {
+                    dgvEquiposD.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void dgvEquiposA_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            if (dgvEquiposA.IsCurrentCellDirty)
+            try
             {
-                dgvEquiposA.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                if (dgvEquiposA.IsCurrentCellDirty)
+                {
+                    dgvEquiposA.CommitEdit(DataGridViewDataErrorContexts.Commit);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -310,7 +331,7 @@ namespace Proyecto_Pagos_Eventos
                     var i = Guid.Parse(dgvServicios.CurrentRow.Cells[1].Value.ToString());
                     var doc = Conexion.getInstance().Documentos.Where(w => w.idComprobante == i).FirstOrDefault();
                     string path = AppDomain.CurrentDomain.BaseDirectory;
-                    string folder = path + "temp/";
+                    string folder = path + @"temp\";
                     string fullFilePath = folder + doc.nombre;
 
                     Directory.CreateDirectory(folder);
@@ -372,34 +393,48 @@ namespace Proyecto_Pagos_Eventos
 
         private void cargarTabla()
         {
-            dgvServicios.DataSource = CrudServicios.Consulta();
-            dgvEquiposD.DataSource = CrudServicios.TraerEquipoD();
-            dgvServicios.AutoResizeColumns();
-            dgvEquiposD.AutoResizeColumns();
+            try
+            {
+                dgvServicios.DataSource = CrudServicios.Consulta();
+                dgvEquiposD.DataSource = CrudServicios.TraerEquipoD();
+                dgvServicios.AutoResizeColumns();
+                dgvEquiposD.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
         
         private void clearInterface()
         {
-            txtMonto.Text = "0";
-            txtFi.Clear();
-            txtFf.Clear();
-            radioBnoActivo.Checked = false;
-            radioBsiActivo.Checked = false;
-            radioBsiPagado.Checked = false;
-            radioBnoPagado.Checked = false;
-            suma = 0;
-            id = Guid.Empty;
-            idS = Guid.Empty;
-            idU = Guid.Empty;
-            idC = Guid.Empty;
-            idE = Guid.Empty;
-            activo = false;
-            activoPago = false;
-            dgvEquiposA.DataSource = null;
-            foreach (DataGridViewRow item in dgvEquiposD.Rows)
+            try
             {
-                DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposD.CurrentRow.Cells[0];
-                item.Cells[0].Value = cell.FalseValue;
+                txtMonto.Text = "0";
+                txtFi.Clear();
+                txtFf.Clear();
+                radioBnoActivo.Checked = false;
+                radioBsiActivo.Checked = false;
+                radioBsiPagado.Checked = false;
+                radioBnoPagado.Checked = false;
+                suma = 0;
+                id = Guid.Empty;
+                idS = Guid.Empty;
+                idU = Guid.Empty;
+                idC = Guid.Empty;
+                idE = Guid.Empty;
+                activo = false;
+                activoPago = false;
+                dgvEquiposA.DataSource = null;
+                foreach (DataGridViewRow item in dgvEquiposD.Rows)
+                {
+                    DataGridViewCheckBoxCell cell = (DataGridViewCheckBoxCell)dgvEquiposD.CurrentRow.Cells[0];
+                    item.Cells[0].Value = cell.FalseValue;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

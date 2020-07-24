@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtMonto = new System.Windows.Forms.MaskedTextBox();
             this.lblMonto = new System.Windows.Forms.Label();
@@ -83,20 +84,21 @@
             // 
             // txtMonto
             // 
+            this.txtMonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMonto.Location = new System.Drawing.Point(494, 29);
             this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(100, 20);
+            this.txtMonto.Size = new System.Drawing.Size(100, 26);
             this.txtMonto.TabIndex = 2;
             this.txtMonto.ValidatingType = typeof(int);
             // 
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonto.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblMonto.ForeColor = System.Drawing.Color.White;
             this.lblMonto.Location = new System.Drawing.Point(424, 28);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(64, 21);
+            this.lblMonto.Size = new System.Drawing.Size(73, 25);
             this.lblMonto.TabIndex = 28;
             this.lblMonto.Text = "Monto:";
             // 
@@ -107,7 +109,7 @@
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.delete;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -124,11 +126,11 @@
             // 
             this.radioBno.AutoSize = true;
             this.radioBno.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioBno.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBno.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBno.ForeColor = System.Drawing.Color.White;
             this.radioBno.Location = new System.Drawing.Point(186, 208);
             this.radioBno.Name = "radioBno";
-            this.radioBno.Size = new System.Drawing.Size(49, 25);
+            this.radioBno.Size = new System.Drawing.Size(55, 29);
             this.radioBno.TabIndex = 5;
             this.radioBno.TabStop = true;
             this.radioBno.Text = "No";
@@ -139,11 +141,11 @@
             // 
             this.radioBsi.AutoSize = true;
             this.radioBsi.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.radioBsi.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radioBsi.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBsi.ForeColor = System.Drawing.Color.White;
             this.radioBsi.Location = new System.Drawing.Point(128, 208);
             this.radioBsi.Name = "radioBsi";
-            this.radioBsi.Size = new System.Drawing.Size(40, 25);
+            this.radioBsi.Size = new System.Drawing.Size(44, 29);
             this.radioBsi.TabIndex = 4;
             this.radioBsi.TabStop = true;
             this.radioBsi.Text = "Si";
@@ -153,17 +155,18 @@
             // labelActivo
             // 
             this.labelActivo.AutoSize = true;
-            this.labelActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActivo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelActivo.ForeColor = System.Drawing.Color.White;
             this.labelActivo.Location = new System.Drawing.Point(52, 208);
             this.labelActivo.Name = "labelActivo";
-            this.labelActivo.Size = new System.Drawing.Size(61, 21);
+            this.labelActivo.Size = new System.Drawing.Size(70, 25);
             this.labelActivo.TabIndex = 24;
             this.labelActivo.Text = "Activo:";
             // 
             // textBoxTipo
             // 
             this.textBoxTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.textBoxTipo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxTipo.FormattingEnabled = true;
             this.textBoxTipo.Items.AddRange(new object[] {
             "Salon",
@@ -171,9 +174,9 @@
             "Silla",
             "Banquete",
             "Sonido"});
-            this.textBoxTipo.Location = new System.Drawing.Point(128, 28);
+            this.textBoxTipo.Location = new System.Drawing.Point(128, 27);
             this.textBoxTipo.Name = "textBoxTipo";
-            this.textBoxTipo.Size = new System.Drawing.Size(272, 21);
+            this.textBoxTipo.Size = new System.Drawing.Size(272, 28);
             this.textBoxTipo.TabIndex = 1;
             // 
             // btnGuardarEquipo
@@ -183,7 +186,7 @@
             this.btnGuardarEquipo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnGuardarEquipo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnGuardarEquipo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarEquipo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarEquipo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnGuardarEquipo.ForeColor = System.Drawing.Color.White;
             this.btnGuardarEquipo.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.save;
             this.btnGuardarEquipo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -208,22 +211,22 @@
             // labelDescripcion
             // 
             this.labelDescripcion.AutoSize = true;
-            this.labelDescripcion.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDescripcion.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelDescripcion.ForeColor = System.Drawing.Color.White;
-            this.labelDescripcion.Location = new System.Drawing.Point(17, 62);
+            this.labelDescripcion.Location = new System.Drawing.Point(12, 62);
             this.labelDescripcion.Name = "labelDescripcion";
-            this.labelDescripcion.Size = new System.Drawing.Size(100, 21);
+            this.labelDescripcion.Size = new System.Drawing.Size(116, 25);
             this.labelDescripcion.TabIndex = 2;
             this.labelDescripcion.Text = "Descripción:";
             // 
             // labelTipo
             // 
             this.labelTipo.AutoSize = true;
-            this.labelTipo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTipo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelTipo.ForeColor = System.Drawing.Color.White;
             this.labelTipo.Location = new System.Drawing.Point(70, 25);
             this.labelTipo.Name = "labelTipo";
-            this.labelTipo.Size = new System.Drawing.Size(47, 21);
+            this.labelTipo.Size = new System.Drawing.Size(53, 25);
             this.labelTipo.TabIndex = 0;
             this.labelTipo.Text = "Tipo:";
             // 
@@ -244,7 +247,7 @@
             this.dgvEquipos.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -262,9 +265,17 @@
             this.dgvEquipos.MultiSelect = false;
             this.dgvEquipos.Name = "dgvEquipos";
             this.dgvEquipos.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvEquipos.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvEquipos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvEquipos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvEquipos.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvEquipos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvEquipos.Size = new System.Drawing.Size(775, 252);
             this.dgvEquipos.TabIndex = 8;

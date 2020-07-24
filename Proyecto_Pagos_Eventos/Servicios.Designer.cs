@@ -119,22 +119,22 @@
             // lblActual
             // 
             this.lblActual.AutoSize = true;
-            this.lblActual.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActual.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblActual.ForeColor = System.Drawing.Color.White;
-            this.lblActual.Location = new System.Drawing.Point(386, 89);
+            this.lblActual.Location = new System.Drawing.Point(385, 85);
             this.lblActual.Name = "lblActual";
-            this.lblActual.Size = new System.Drawing.Size(137, 21);
+            this.lblActual.Size = new System.Drawing.Size(160, 25);
             this.lblActual.TabIndex = 43;
             this.lblActual.Text = "Equipos actuales:";
             // 
             // lblDisponible
             // 
             this.lblDisponible.AutoSize = true;
-            this.lblDisponible.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDisponible.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblDisponible.ForeColor = System.Drawing.Color.White;
-            this.lblDisponible.Location = new System.Drawing.Point(16, 89);
+            this.lblDisponible.Location = new System.Drawing.Point(15, 85);
             this.lblDisponible.Name = "lblDisponible";
-            this.lblDisponible.Size = new System.Drawing.Size(162, 21);
+            this.lblDisponible.Size = new System.Drawing.Size(186, 25);
             this.lblDisponible.TabIndex = 42;
             this.lblDisponible.Text = "Equipos disponibles:";
             // 
@@ -142,6 +142,8 @@
             // 
             this.dgvEquiposA.AllowUserToAddRows = false;
             this.dgvEquiposA.AllowUserToDeleteRows = false;
+            this.dgvEquiposA.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvEquiposA.AutoGenerateColumns = false;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
@@ -224,11 +226,11 @@
             // radioBnoActivo
             // 
             this.radioBnoActivo.AutoSize = true;
-            this.radioBnoActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.radioBnoActivo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBnoActivo.ForeColor = System.Drawing.Color.White;
-            this.radioBnoActivo.Location = new System.Drawing.Point(509, 50);
+            this.radioBnoActivo.Location = new System.Drawing.Point(531, 53);
             this.radioBnoActivo.Name = "radioBnoActivo";
-            this.radioBnoActivo.Size = new System.Drawing.Size(51, 25);
+            this.radioBnoActivo.Size = new System.Drawing.Size(57, 29);
             this.radioBnoActivo.TabIndex = 6;
             this.radioBnoActivo.Text = "No";
             this.radioBnoActivo.UseVisualStyleBackColor = true;
@@ -237,11 +239,11 @@
             // radioBsiActivo
             // 
             this.radioBsiActivo.AutoSize = true;
-            this.radioBsiActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.radioBsiActivo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBsiActivo.ForeColor = System.Drawing.Color.White;
-            this.radioBsiActivo.Location = new System.Drawing.Point(461, 50);
+            this.radioBsiActivo.Location = new System.Drawing.Point(488, 53);
             this.radioBsiActivo.Name = "radioBsiActivo";
-            this.radioBsiActivo.Size = new System.Drawing.Size(42, 25);
+            this.radioBsiActivo.Size = new System.Drawing.Size(46, 29);
             this.radioBsiActivo.TabIndex = 5;
             this.radioBsiActivo.Text = "Si";
             this.radioBsiActivo.UseVisualStyleBackColor = true;
@@ -250,11 +252,11 @@
             // radioBnoPagado
             // 
             this.radioBnoPagado.AutoSize = true;
-            this.radioBnoPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.radioBnoPagado.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBnoPagado.ForeColor = System.Drawing.Color.White;
-            this.radioBnoPagado.Location = new System.Drawing.Point(689, 50);
+            this.radioBnoPagado.Location = new System.Drawing.Point(703, 53);
             this.radioBnoPagado.Name = "radioBnoPagado";
-            this.radioBnoPagado.Size = new System.Drawing.Size(51, 25);
+            this.radioBnoPagado.Size = new System.Drawing.Size(57, 29);
             this.radioBnoPagado.TabIndex = 8;
             this.radioBnoPagado.Text = "No";
             this.radioBnoPagado.UseVisualStyleBackColor = true;
@@ -263,11 +265,11 @@
             // radioBsiPagado
             // 
             this.radioBsiPagado.AutoSize = true;
-            this.radioBsiPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F);
+            this.radioBsiPagado.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.radioBsiPagado.ForeColor = System.Drawing.Color.White;
-            this.radioBsiPagado.Location = new System.Drawing.Point(641, 50);
+            this.radioBsiPagado.Location = new System.Drawing.Point(662, 53);
             this.radioBsiPagado.Name = "radioBsiPagado";
-            this.radioBsiPagado.Size = new System.Drawing.Size(42, 25);
+            this.radioBsiPagado.Size = new System.Drawing.Size(46, 29);
             this.radioBsiPagado.TabIndex = 7;
             this.radioBsiPagado.Text = "Si";
             this.radioBsiPagado.UseVisualStyleBackColor = true;
@@ -350,17 +352,17 @@
             // 
             // btnClear
             // 
-            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.btnClear.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.btnClear.BackColor = System.Drawing.Color.OrangeRed;
             this.btnClear.FlatAppearance.BorderSize = 0;
             this.btnClear.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnClear.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnClear.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClear.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnClear.ForeColor = System.Drawing.Color.White;
             this.btnClear.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.delete;
             this.btnClear.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClear.Location = new System.Drawing.Point(404, 249);
+            this.btnClear.Location = new System.Drawing.Point(118, 249);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(250, 40);
             this.btnClear.TabIndex = 10;
@@ -371,61 +373,64 @@
             // 
             // txtFf
             // 
-            this.txtFf.Location = new System.Drawing.Point(298, 50);
+            this.txtFf.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFf.Location = new System.Drawing.Point(328, 51);
             this.txtFf.Mask = "00/00/0000";
             this.txtFf.Name = "txtFf";
-            this.txtFf.Size = new System.Drawing.Size(76, 20);
+            this.txtFf.Size = new System.Drawing.Size(86, 26);
             this.txtFf.TabIndex = 4;
             this.txtFf.ValidatingType = typeof(System.DateTime);
             // 
             // lblFF
             // 
             this.lblFF.AutoSize = true;
-            this.lblFF.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFF.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblFF.ForeColor = System.Drawing.Color.White;
-            this.lblFF.Location = new System.Drawing.Point(200, 49);
+            this.lblFF.Location = new System.Drawing.Point(222, 53);
             this.lblFF.Name = "lblFF";
-            this.lblFF.Size = new System.Drawing.Size(92, 21);
+            this.lblFF.Size = new System.Drawing.Size(109, 25);
             this.lblFF.TabIndex = 40;
             this.lblFF.Text = "Fecha final:";
             // 
             // txtFi
             // 
-            this.txtFi.Location = new System.Drawing.Point(118, 50);
+            this.txtFi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFi.Location = new System.Drawing.Point(134, 51);
             this.txtFi.Mask = "00/00/0000";
             this.txtFi.Name = "txtFi";
-            this.txtFi.Size = new System.Drawing.Size(76, 20);
+            this.txtFi.Size = new System.Drawing.Size(88, 26);
             this.txtFi.TabIndex = 3;
             this.txtFi.ValidatingType = typeof(System.DateTime);
             // 
             // txtClientes
             // 
             this.txtClientes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.txtClientes.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtClientes.FormattingEnabled = true;
-            this.txtClientes.Location = new System.Drawing.Point(104, 19);
+            this.txtClientes.Location = new System.Drawing.Point(95, 16);
             this.txtClientes.Name = "txtClientes";
-            this.txtClientes.Size = new System.Drawing.Size(273, 21);
+            this.txtClientes.Size = new System.Drawing.Size(273, 28);
             this.txtClientes.TabIndex = 1;
             // 
             // lblActivo
             // 
             this.lblActivo.AutoSize = true;
-            this.lblActivo.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblActivo.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblActivo.ForeColor = System.Drawing.Color.White;
-            this.lblActivo.Location = new System.Drawing.Point(386, 50);
+            this.lblActivo.Location = new System.Drawing.Point(420, 51);
             this.lblActivo.Name = "lblActivo";
-            this.lblActivo.Size = new System.Drawing.Size(61, 21);
+            this.lblActivo.Size = new System.Drawing.Size(70, 25);
             this.lblActivo.TabIndex = 34;
             this.lblActivo.Text = "Activo:";
             // 
             // lblPagado
             // 
             this.lblPagado.AutoSize = true;
-            this.lblPagado.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPagado.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblPagado.ForeColor = System.Drawing.Color.White;
-            this.lblPagado.Location = new System.Drawing.Point(566, 50);
+            this.lblPagado.Location = new System.Drawing.Point(585, 53);
             this.lblPagado.Name = "lblPagado";
-            this.lblPagado.Size = new System.Drawing.Size(69, 21);
+            this.lblPagado.Size = new System.Drawing.Size(80, 25);
             this.lblPagado.TabIndex = 31;
             this.lblPagado.Text = "Pagado:";
             // 
@@ -443,38 +448,38 @@
             // lblMonto
             // 
             this.lblMonto.AutoSize = true;
-            this.lblMonto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMonto.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblMonto.ForeColor = System.Drawing.Color.White;
-            this.lblMonto.Location = new System.Drawing.Point(383, 19);
+            this.lblMonto.Location = new System.Drawing.Point(400, 19);
             this.lblMonto.Name = "lblMonto";
-            this.lblMonto.Size = new System.Drawing.Size(64, 21);
+            this.lblMonto.Size = new System.Drawing.Size(73, 25);
             this.lblMonto.TabIndex = 26;
             this.lblMonto.Text = "Monto:";
             // 
             // lblFI
             // 
             this.lblFI.AutoSize = true;
-            this.lblFI.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFI.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblFI.ForeColor = System.Drawing.Color.White;
-            this.lblFI.Location = new System.Drawing.Point(9, 50);
+            this.lblFI.Location = new System.Drawing.Point(15, 53);
             this.lblFI.Name = "lblFI";
-            this.lblFI.Size = new System.Drawing.Size(103, 21);
+            this.lblFI.Size = new System.Drawing.Size(122, 25);
             this.lblFI.TabIndex = 23;
             this.lblFI.Text = "Fecha inicial:";
             // 
             // btnGuardarServicio
             // 
-            this.btnGuardarServicio.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.btnGuardarServicio.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.btnGuardarServicio.BackColor = System.Drawing.Color.OrangeRed;
             this.btnGuardarServicio.FlatAppearance.BorderSize = 0;
             this.btnGuardarServicio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.OrangeRed;
             this.btnGuardarServicio.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightSalmon;
             this.btnGuardarServicio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardarServicio.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardarServicio.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.btnGuardarServicio.ForeColor = System.Drawing.Color.White;
             this.btnGuardarServicio.Image = global::Proyecto_Pagos_Eventos.Properties.Resources.save;
             this.btnGuardarServicio.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardarServicio.Location = new System.Drawing.Point(118, 249);
+            this.btnGuardarServicio.Location = new System.Drawing.Point(404, 249);
             this.btnGuardarServicio.Name = "btnGuardarServicio";
             this.btnGuardarServicio.Size = new System.Drawing.Size(250, 40);
             this.btnGuardarServicio.TabIndex = 9;
@@ -486,11 +491,11 @@
             // lblCliente
             // 
             this.lblCliente.AutoSize = true;
-            this.lblCliente.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCliente.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.lblCliente.ForeColor = System.Drawing.Color.White;
-            this.lblCliente.Location = new System.Drawing.Point(9, 19);
+            this.lblCliente.Location = new System.Drawing.Point(15, 19);
             this.lblCliente.Name = "lblCliente";
-            this.lblCliente.Size = new System.Drawing.Size(65, 21);
+            this.lblCliente.Size = new System.Drawing.Size(76, 25);
             this.lblCliente.TabIndex = 0;
             this.lblCliente.Text = "Cliente:";
             // 
@@ -503,7 +508,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -515,7 +520,7 @@
             this.dgvServicios.Name = "dgvServicios";
             this.dgvServicios.ReadOnly = true;
             this.dgvServicios.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft JhengHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvServicios.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvServicios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvServicios.Size = new System.Drawing.Size(775, 213);
@@ -535,11 +540,11 @@
             // labelTexto
             // 
             this.labelTexto.AutoSize = true;
-            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTexto.Font = new System.Drawing.Font("Malgun Gothic", 14F);
             this.labelTexto.ForeColor = System.Drawing.Color.White;
-            this.labelTexto.Location = new System.Drawing.Point(40, 326);
+            this.labelTexto.Location = new System.Drawing.Point(39, 322);
             this.labelTexto.Name = "labelTexto";
-            this.labelTexto.Size = new System.Drawing.Size(139, 21);
+            this.labelTexto.Size = new System.Drawing.Size(160, 25);
             this.labelTexto.TabIndex = 13;
             this.labelTexto.Text = "Lista de Servicios";
             // 
